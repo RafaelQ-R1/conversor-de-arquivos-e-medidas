@@ -29,15 +29,21 @@ function home() {
                 <Options>
                     <div />
                     <li>
-                        <img src={audio} alt="audio" />
+                        <Link to="/audio">
+                            <img src={audio} alt="audio" />
+                        </Link>
                         <h6>Áudio</h6>
                     </li>
                     <li>
-                        <img src={video} alt="video" />
+                        <Link to="/video">
+                            <img src={video} alt="video" />
+                        </Link>
                         <h6>VÍdeo</h6>
                     </li>
                     <li>
-                        <img src={imagem} alt="imagem" />
+                        <Link to="/iamgem">
+                            <img src={imagem} alt="imagem" />
+                        </Link>
                         <h6>Imagem</h6>
                     </li>
                     <li>

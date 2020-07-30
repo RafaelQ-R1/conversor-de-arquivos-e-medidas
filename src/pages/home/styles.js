@@ -13,6 +13,7 @@ to{
 export const Container = styled.div`
     background: #171a23;
     height: '100%';
+    padding-bottom: 100px;
 
     img {
         margin: 25px 25px 25px 37px;
