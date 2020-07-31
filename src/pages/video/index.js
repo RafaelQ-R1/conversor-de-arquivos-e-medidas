@@ -10,16 +10,10 @@ import {
 import engrenagem from '../../assets/images/engrenagem.png';
 
 import Footer from '../../components/Footer';
-import Header from '../../components/Title';
+import Title from '../../components/Title';
+import Header from '../../components/Header';
 
-import {
-    Container,
-    Form,
-    Titulo,
-    Tutorial,
-    ListaDiferenciais,
-    Rodape,
-} from './styles';
+import { Container, Form, Tutorial, ListaDiferenciais, Rodape } from './styles';
 
 function video() {
     return (
@@ -32,7 +26,7 @@ function video() {
                     </Link>
                 </div>
 
-                <Header label="Converter vídeo" />
+                <Title label="Converter vídeo" />
 
                 <Form>
                     <div id="linha1">
@@ -57,7 +51,7 @@ function video() {
                         </select>
                     </div>
                 </Form>
-                <Titulo>Como utilizar a conversão de vídeos:</Titulo>
+                <Header label="Como utilizar a conversão de vídeos:" />
                 <Tutorial>
                     <li>
                         <h2 id="titulo-lista">Copie o link de um vídeo</h2>

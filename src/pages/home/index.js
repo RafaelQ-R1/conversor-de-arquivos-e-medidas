@@ -41,7 +41,7 @@ function home() {
                         <h6>VÍdeo</h6>
                     </li>
                     <li>
-                        <Link to="/iamgem">
+                        <Link to="/imagem">
                             <img src={imagem} alt="imagem" />
                         </Link>
                         <h6>Imagem</h6>

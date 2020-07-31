@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import Rectangle from '../../assets/images/Rectangle.svg';
 import { Title } from './styles';

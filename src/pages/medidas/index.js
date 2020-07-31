@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import engrenagem from '../../assets/images/engrenagem.png';
 
 import Footer from '../../components/Footer';
-import Header from '../../components/Title';
+import Title from '../../components/Title';
 import { Container, Form } from './styles';
 
 function Medidas() {
@@ -16,7 +16,7 @@ function Medidas() {
                         <img src={engrenagem} alt="engrenagem" />
                     </Link>
                 </div>
-                <Header label="Converter medida" />
+                <Title label="Converter medida" />
 
                 <Form>
                     <div>
