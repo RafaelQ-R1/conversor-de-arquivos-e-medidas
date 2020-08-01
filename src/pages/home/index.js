@@ -11,6 +11,7 @@ import devices from '../../assets/images/dispositivos.png';
 import ux from '../../assets/images/ux.png';
 import virus from '../../assets/images/virus.png';
 import tecnologia from '../../assets/images/tecnologia.png';
+import moeda from '../../assets/images/moeda.png';
 import Footer from '../../components/Footer';
 
 import { Container, Options, Descriptions } from './styles';
@@ -51,6 +52,12 @@ function home() {
                             <img src={medida} alt="medida" />
                         </Link>
                         <h6>Medida</h6>
+                    </li>
+                    <li>
+                        <Link to="/moedas">
+                            <img src={moeda} alt="moedas" />
+                        </Link>
+                        <h6>Moeda</h6>
                     </li>
                     <div />
                 </Options>

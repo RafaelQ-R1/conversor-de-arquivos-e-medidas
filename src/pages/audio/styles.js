@@ -59,49 +59,33 @@ export const Container = styled.div`
     }
 `;
 
-export const Convert = styled.div`
+export const Form = styled.form`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 0 50px 50px 50px;
+    margin: 30px 50px 30px 50px;
 
-    #Size-limit {
-        display: flex;
-        flex-direction: column;
-        margin: 10px 0 0 0;
-
-        h5 {
-            color: #30aad2;
-        }
-        h6 {
-            color: #00f49c;
-        }
-    }
-
-    #Commands {
+    #linha1 {
         display: flex;
         flex-direction: row;
-
         input {
             background-color: #ced8e6;
-            width: 270px;
-            height: 40px;
+            width: 370px;
+            height: 60px;
             color: #006600;
             font-weight: bold;
             border: #103454 2px solid;
             border-radius: 4px;
             text-align: center;
-            font-size: 10px;
         }
-
-        #Browse {
+        #buscar {
             font-weight: bolder;
             font-style: italic;
             color: #31b9f3;
-            width: 120px;
-            height: 40px;
+            width: 150px;
+            height: 60px;
             font-size: 15px;
-            background-color: #0d2235;
+            background-color: #163756;
             border: #103454 2px solid;
             border-radius: 4px;
 
@@ -110,84 +94,71 @@ export const Convert = styled.div`
                 cursor: pointer;
             }
         }
-        #Convert {
-            margin: 0 0 0 20px;
-            font-weight: bolder;
-            font-style: italic;
-            color: #31b9f3;
-            width: 120px;
-            height: 40px;
-            font-size: 15px;
-            background-color: #163756;
-            border: #103454 2px solid;
-            border-radius: 4px;
-        }
     }
-`;
 
-export const Properties = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-
-    #Output {
+    #linha2 {
         display: flex;
         flex-direction: row;
-        justify-content: center;
-        margin: 0 73px 0 0;
-
-        strong {
-            color: #6044e3;
-            font-size: 20px;
-        }
-        select {
-            margin: 0 0 0 15px;
+        #Converter {
             font-size: 15px;
             color: #31b9ec;
             font-weight: bolder;
             background-color: #00a02b;
             width: 130px;
-            height: 30px;
-            background-color: #0d2235;
+            height: 60px;
+            background-color: #1b3a56;
+            border-color: #31b9f3;
+            border-width: 0 1px 0 0px;
+            border-radius: 2px;
+            border: #103454 2px solid;
+
+            &:hover {
+                color: ${darken(0.1, '#1c4367')};
+                cursor: pointer;
+            }
+        }
+
+        #selecionarTipo {
+            font-size: 15px;
+            color: #31b9ec;
+            font-weight: bolder;
+            background-color: #00a02b;
+            width: 130px;
+            height: 60px;
+            background-color: #1b3a56;
             border-color: #31b9f3;
             border-width: 0 0 0 1px;
             border-radius: 2px;
             border: #103454 2px solid;
             text-align: center;
-        }
-    }
-
-    #Quality {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        margin: 0 2cm 0 0;
-
-        strong {
-            margin: 0 8px 0 0;
-            color: #31b9d2;
-            text-decoration: underline;
-        }
-
-        input {
-            margin: 0 10px 0 10px;
-            width: 25px;
-        }
-        h6 {
-            font-size: 15px;
-            color: #00f49c;
+            &:hover {
+                color: ${darken(0.1, '#1c4367')};
+                cursor: pointer;
+            }
         }
     }
 `;
 
-export const Types = styled.h2`
-    margin: 50px 90px 0 90px;
-    color: #00f49c;
-    text-decoration: underline;
-    font-style: italic;
-    font-weight: bold;
-    text-align: center;
-    font-size: 12px;
+export const Tutorial = styled.ol`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 0 100px 0;
+
+    li {
+        margin: 20px 120px 20px 120px;
+        #titulo-lista {
+            font-size: 20px;
+            color: #00f492;
+            font-size: 15px;
+            margin-bottom: 10px;
+        }
+        #texto-lista {
+            font-size: 13px;
+            text-align: left;
+            color: #31b9f3;
+        }
+    }
 `;
 
 export const ListaDiferenciais = styled.div`
@@ -227,24 +198,18 @@ export const ListaDiferenciais = styled.div`
         }
     }
 `;
-export const Tutorial = styled.ol`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 0 100px 0;
 
-    li {
-        margin: 20px 120px 20px 120px;
-        #titulo-lista {
-            font-size: 20px;
-            color: #00f492;
-            font-size: 15px;
-            margin-bottom: 10px;
-        }
-        #texto-lista {
-            font-size: 13px;
-            text-align: left;
-            color: #31b9f3;
-        }
+export const Rodape = styled.div`
+    margin: 0 90px 0 90px;
+    h2 {
+        text-align: center;
+        margin: 90px 0 70px 0;
+        color: #00f453;
+    }
+
+    strong {
+        text-align: center;
+        color: #31b9f3;
+        font-size: 12px;
     }
 `;
