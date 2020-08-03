@@ -54,7 +54,7 @@ function home() {
                         <h6>Medida</h6>
                     </li>
                     <li>
-                        <Link to="/moedas">
+                        <Link to="/moeda">
                             <img src={moeda} alt="moedas" />
                         </Link>
                         <h6>Moeda</h6>
