@@ -3,7 +3,7 @@ import React from 'react';
 import { FaExchangeAlt } from 'react-icons/fa';
 import { AiOutlineReload } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
-import { Container, Pannel } from './styles';
+import { Container, Pannel, Details } from './styles';
 import Title from '../../components/Title';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
@@ -23,6 +23,10 @@ function moeda() {
 
                 <Header label="Escolha qual moeda você quer converter" />
                 <Pannel>
+                    <div id="date">
+                        <strong>DATA DA COTAÇÃO:</strong>
+                        <input />
+                    </div>
                     <div id="line1">
                         <div id="value">
                             <strong>Valor</strong>
@@ -31,10 +35,10 @@ function moeda() {
                         <div id="convertTo">
                             <strong>Converter de</strong>
                             <select id="selecionarTipo">
-                                <option value="volvo">Dólar</option>
-                                <option value="saab">Euro</option>
-                                <option value="opel">Real</option>
-                                <option value="audi">Libra</option>
+                                <option value="Dólar">Dólar</option>
+                                <option value="Euro">Euro</option>
+                                <option value="Real">Real</option>
+                                <option value="Libra">Libra</option>
                             </select>
                         </div>
                         <button id="alternate" type="button">
@@ -43,10 +47,10 @@ function moeda() {
                         <div id="for">
                             <strong>Para</strong>
                             <select id="selecionarTipo">
-                                <option value="volvo">Dólar</option>
-                                <option value="saab">Euro</option>
-                                <option value="opel">Real</option>
-                                <option value="audi">Libra</option>
+                                <option value="Dólar">Dólar</option>
+                                <option value="Euro">Euro</option>
+                                <option value="Real">Real</option>
+                                <option value="Libra">Libra</option>
                             </select>
                         </div>
                         <button id="convert" type="button">
@@ -97,6 +101,39 @@ function moeda() {
                         </h6>
                     </div>
                 </Pannel>
+                <Details>
+                    <ul>
+                        <li>
+                            O cálculo efetuado tem caráter informativo e não
+                            substitui as disposições da norma cambial brasileira
+                            para casos específicos de conversão.
+                        </li>
+                        <li>
+                            Conversões disponíveis para datas informadas a
+                            partir de 01/02/1999.
+                        </li>
+                        <li>
+                            Para dias não úteis, assume-se a cotação do dia útil
+                            imediatamente anterior.
+                        </li>
+                        <li>
+                            O Banco Central não assume qualquer responsabilidade
+                            pela não simultaneidade ou falta das informações
+                            prestadas, assim como por eventuais erros de
+                            paridades das moedas, ou qualquer outro, salvo a
+                            paridade relativa ao dólar dos Estados Unidos da
+                            América em relação ao Real. Igualmente, não se
+                            responsabiliza pelos atrasos ou indisponibilidade de
+                            serviços de telecomunicação, interrupção, falha ou
+                            pelas imprecisões no fornecimento dos serviços ou
+                            informações. Não assume, também, responsabilidade
+                            por qualquer perda ou dano oriundo de tais
+                            interrupções, atrasos, falhas ou imperfeições, bem
+                            como pelo uso inadequado das informações contidas na
+                            transação.
+                        </li>
+                    </ul>
+                </Details>
             </Container>
             <Footer />
         </>

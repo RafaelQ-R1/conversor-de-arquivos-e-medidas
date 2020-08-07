@@ -2,22 +2,8 @@ import React from 'react';
 
 import { Link } from 'react-router-dom';
 
-import {
-    IoMdBrowsers,
-    IoMdSpeedometer,
-    IoIosPerson,
-    IoMdInfinite,
-    IoIosCloudDownload,
-} from 'react-icons/io';
-
-import {
-    Container,
-    Convert,
-    Properties,
-    Types,
-    ListaDiferenciais,
-    Tutorial,
-} from './styles';
+import Features from '../../components/Features';
+import { Container, Convert, Properties, Types, Tutorial } from './styles';
 
 import Title from '../../components/Title';
 import Footer from '../../components/Footer';
@@ -41,7 +27,6 @@ function imagem() {
                     <div id="Size-limit">
                         <h5>Tamanho limite: 3072 KB (3 MB)</h5>
                         <h6>
-                            {' '}
                             Seja paciente se a imagem original for muito grande
                         </h6>
                     </div>
@@ -137,34 +122,7 @@ function imagem() {
                     </li>
                 </Tutorial>
 
-                <ListaDiferenciais>
-                    <h2 id="Diferenciais">Porque nosso conversor é melhor:</h2>
-                    <div>
-                        <div id="elemento-lista">
-                            <IoMdBrowsers size={40} color="#6746f4" />
-                            <h6>Compatível com todos os navegadores</h6>
-                        </div>
-                        <div id="elemento-lista">
-                            <IoMdSpeedometer size={40} color="#6746f4" />
-                            <h6>Conversões rápidas</h6>
-                        </div>
-                        <div id="elemento-lista">
-                            <IoIosPerson size={40} color="#6746f4" />
-                            <h6>Não requer cadastro</h6>
-                        </div>
-
-                        <div id="elemento-lista">
-                            <IoMdInfinite size={40} color="#6746f4" />
-                            <h6>Downloads ilimitados e gratuitos</h6>
-                        </div>
-                        <div id="elemento-lista">
-                            <IoIosCloudDownload size={40} color="#6746f4" />
-                            <h6 id="descricao">
-                                Não requer instalação de software
-                            </h6>
-                        </div>
-                    </div>
-                </ListaDiferenciais>
+                <Features />
             </Container>
             <Footer />
         </>

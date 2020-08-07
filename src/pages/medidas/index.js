@@ -1,10 +1,22 @@
 import React from 'react';
+import {
+    FaExchangeAlt,
+    FaTemperatureHigh,
+    FaRulerCombined,
+    FaClock,
+    FaWeightHanging,
+} from 'react-icons/fa';
+import { IoMdSpeedometer } from 'react-icons/io';
+
+import { AiOutlineReload } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
+import Pannel from '../../components/Pannel';
+
 import engrenagem from '../../assets/images/engrenagem.png';
 
 import Footer from '../../components/Footer';
 import Title from '../../components/Title';
-import { Container, Form } from './styles';
+import { Container } from './styles';
 
 function Medidas() {
     return (
@@ -18,113 +30,10 @@ function Medidas() {
                 </div>
                 <Title label="Converter medida" />
 
-                <Form>
-                    <div>
-                        <h2>Converter tamanho / distância:</h2>
-                        <div id="painel1">
-                            <select id="select1">
-                                <option value="volvo">milímetro</option>
-                                <option value="saab">centímetro</option>
-                                <option value="opel">metro</option>
-                                <option value="audi">kilometro</option>
-                            </select>
-
-                            <input
-                                id="input1"
-                                placeholder="escreva a quantidade de metros"
-                            />
-                        </div>
-                        <div id="painel1">
-                            <select id="select1">
-                                <option value="volvo">milímetro</option>
-                                <option value="saab">centímetro</option>
-                                <option value="opel">metro</option>
-                                <option value="audi">kilometro</option>
-                            </select>
-
-                            <input
-                                id="input1"
-                                placeholder="escreva a quantidade de metros"
-                            />
-                        </div>
-                        <div>
-                            <button type="button">Converter</button>
-                            <input placeholder="resultado" readOnly />
-                        </div>
-                    </div>
-                </Form>
-
-                <Form>
-                    <div>
-                        <h2>Converter tamanho / distância:</h2>
-                        <div id="painel1">
-                            <select id="select1">
-                                <option value="volvo">milímetro</option>
-                                <option value="saab">centímetro</option>
-                                <option value="opel">metro</option>
-                                <option value="audi">kilometro</option>
-                            </select>
-
-                            <input
-                                id="input1"
-                                placeholder="escreva a quantidade de metros"
-                            />
-                        </div>
-                        <div id="painel1">
-                            <select id="select1">
-                                <option value="volvo">milímetro</option>
-                                <option value="saab">centímetro</option>
-                                <option value="opel">metro</option>
-                                <option value="audi">kilometro</option>
-                            </select>
-
-                            <input
-                                id="input1"
-                                placeholder="escreva a quantidade de metros"
-                            />
-                        </div>
-                        <div>
-                            <button type="button">Converter</button>
-                            <input placeholder="resultado" readOnly />
-                        </div>
-                    </div>
-                </Form>
-
-                <Form>
-                    <div>
-                        <h2>Converter tamanho / distância:</h2>
-                        <div id="painel1">
-                            <select id="select1">
-                                <option value="volvo">milímetro</option>
-                                <option value="saab">centímetro</option>
-                                <option value="opel">metro</option>
-                                <option value="audi">kilometro</option>
-                            </select>
-
-                            <input
-                                id="input1"
-                                placeholder="escreva a quantidade de metros"
-                            />
-                        </div>
-                        <div id="painel1">
-                            <select id="select1">
-                                <option value="volvo">milímetro</option>
-                                <option value="saab">centímetro</option>
-                                <option value="opel">metro</option>
-                                <option value="audi">kilometro</option>
-                            </select>
-
-                            <input
-                                id="input1"
-                                placeholder="escreva a quantidade de metros"
-                            />
-                        </div>
-                        <div>
-                            <button type="button">Converter</button>
-                            <input placeholder="resultado" readOnly />
-                        </div>
-                    </div>
-                </Form>
+                <Pannel strong="converter temperatura" />
+                <Pannel strong="converter velocidade" />
+                <Pannel strong="converter escala" />
+                <Pannel strong="converter tempo" />
             </Container>
             <Footer />
         </>

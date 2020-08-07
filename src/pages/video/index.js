@@ -1,19 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {
-    IoMdBrowsers,
-    IoMdSpeedometer,
-    IoIosPerson,
-    IoMdInfinite,
-    IoIosCloudDownload,
-} from 'react-icons/io';
+
 import engrenagem from '../../assets/images/engrenagem.png';
 
 import Footer from '../../components/Footer';
 import Title from '../../components/Title';
 import Header from '../../components/Header';
+import Features from '../../components/Features';
 
-import { Container, Form, Tutorial, ListaDiferenciais, Rodape } from './styles';
+import { Container, Form, Tutorial, Rodape } from './styles';
 
 function video() {
     return (
@@ -100,34 +95,8 @@ function video() {
                     </li>
                 </Tutorial>
 
-                <ListaDiferenciais>
-                    <h2 id="Diferenciais">Porque nosso conversor é melhor:</h2>
-                    <div>
-                        <div id="elemento-lista">
-                            <IoMdBrowsers size={40} color="#6746f4" />
-                            <h6>Compatível com todos os navegadores</h6>
-                        </div>
-                        <div id="elemento-lista">
-                            <IoMdSpeedometer size={40} color="#6746f4" />
-                            <h6>Conversões rápidas</h6>
-                        </div>
-                        <div id="elemento-lista">
-                            <IoIosPerson size={40} color="#6746f4" />
-                            <h6>Não requer cadastro</h6>
-                        </div>
+                <Features />
 
-                        <div id="elemento-lista">
-                            <IoMdInfinite size={40} color="#6746f4" />
-                            <h6>Downloads ilimitados e gratuitos</h6>
-                        </div>
-                        <div id="elemento-lista">
-                            <IoIosCloudDownload size={40} color="#6746f4" />
-                            <h6 id="descricao">
-                                Não requer instalação de software
-                            </h6>
-                        </div>
-                    </div>
-                </ListaDiferenciais>
                 <Rodape>
                     <h2>
                         Converta seus vídeos do YouTube para qualquer formato

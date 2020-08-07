@@ -68,10 +68,30 @@ export const Pannel = styled.div`
     margin: 40px 30px 40px 30px;
     border: #000000 0.5px solid;
     border-radius: 4px;
-    height: 350px;
-
+    height: 450px;
     display: flex;
     flex-direction: row;
+
+    #date {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin: 20px 0 30px 23px;
+        strong {
+            font-size: 15px;
+            text-decoration: underline;
+            color: #31b9f3;
+        }
+
+        input {
+            margin: 0 0 0 20px;
+            width: 190px;
+            border: #103454 2px solid;
+            height: 30px;
+        }
+    }
+
     #line1 {
         display: flex;
         flex-direction: row;
@@ -109,14 +129,17 @@ export const Pannel = styled.div`
                 color: #31b9ec;
                 font-weight: bolder;
                 background-color: #00a02b;
-                width: 215px;
+                width: 210px;
                 height: 35px;
                 background-color: #0d2235;
-                border-color: #31b9f3;
                 border-width: 0 0 0 1px;
                 border-radius: 2px;
-                border: #103454 2px solid;
+                border: #103454 4px solid;
                 text-align: center;
+                -webkit-appearance: none; /* Remove estilo padrão do Chrome */
+                -moz-appearance: none; /* Remove estilo padrão do FireFox */
+                appearance: none; /* Remove estilo padrão do FireFox*/
+                background-position: 218px center; /*Posição da imagem do background*/
             }
         }
         #alternate {
@@ -152,8 +175,13 @@ export const Pannel = styled.div`
                 border-color: #31b9f3;
                 border-width: 0 0 0 1px;
                 border-radius: 2px;
-                border: #103454 2px solid;
+                border: #103454 4px solid;
                 text-align: center;
+
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                background-position: 218px center;
             }
         }
         #convert {
@@ -214,7 +242,7 @@ export const Pannel = styled.div`
             flex-direction: column;
             justify-content: center;
             margin: 0 0 0 40px;
-            width: 455px;
+            width: 460px;
             height: 80px;
             background-color: #183f63;
             border: #000000 0.5px solid;
@@ -268,7 +296,7 @@ export const Pannel = styled.div`
         #tax {
             display: flex;
             flex-direction: row;
-            margin: 0 0 0 0;
+            margin: 0 0 5px 0;
             font-size: 18px;
         }
         h6 {
@@ -277,4 +305,14 @@ export const Pannel = styled.div`
             font-size: 12px;
         }
     }
+`;
+
+export const Details = styled.div`
+    display: flex;
+    align-items: center;
+    margin: 0 0 0 40px;
+    width: 900px;
+    color: #00f49c;
+    font-size: 12px;
+    font-weight: bold;
 `;
