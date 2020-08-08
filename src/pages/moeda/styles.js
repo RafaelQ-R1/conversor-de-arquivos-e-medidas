@@ -1,4 +1,8 @@
 import styled, { keyframes } from 'styled-components';
+import { fadeInRight, fadeInUp } from 'react-animations';
+
+const fadeInRightAnimation = keyframes`${fadeInRight}`;
+const fadeInUpAnimation = keyframes`${fadeInUp}`;
 
 const rotate = keyframes`
 from {
@@ -71,6 +75,7 @@ export const Pannel = styled.div`
     height: 450px;
     display: flex;
     flex-direction: row;
+    animation: ${fadeInRightAnimation} 2s;
 
     #date {
         display: flex;
@@ -315,4 +320,5 @@ export const Details = styled.div`
     color: #00f49c;
     font-size: 12px;
     font-weight: bold;
+    animation: ${fadeInUpAnimation} 4s;
 `;

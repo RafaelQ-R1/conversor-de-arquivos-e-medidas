@@ -13,6 +13,7 @@ import { Link } from 'react-router-dom';
 import Pannel from '../../components/Pannel';
 
 import engrenagem from '../../assets/images/engrenagem.png';
+import Options from '../../components/Options';
 
 import Footer from '../../components/Footer';
 import Title from '../../components/Title';
@@ -28,12 +29,39 @@ function Medidas() {
                         <img src={engrenagem} alt="engrenagem" />
                     </Link>
                 </div>
-                <Title label="Converter medida" />
 
-                <Pannel strong="converter temperatura" />
-                <Pannel strong="converter velocidade" />
-                <Pannel strong="converter escala" />
-                <Pannel strong="converter tempo" />
+                <Title label="Converter medida" />
+                <Options />
+
+                <Pannel
+                    strong="converter temperatura"
+                    item1="Celsius"
+                    item2="Farenheit"
+                    item3="Kelvin"
+                    item4="Libras"
+                />
+                <Pannel
+                    strong="converter velocidade"
+                    item1="km/h"
+                    item2="m/s"
+                    item3="ml/h"
+                    item4="cm/s"
+                />
+                <Pannel
+                    strong="converter escala"
+                    item1="Centímetros"
+                    item2="Metros"
+                    item3="Kilometrôs"
+                    item4="Parsecs"
+                />
+
+                <Pannel
+                    strong="converter tempo"
+                    item1="Segundos"
+                    item2="Minutos"
+                    item3="Horas"
+                    item4="Dias"
+                />
             </Container>
             <Footer />
         </>

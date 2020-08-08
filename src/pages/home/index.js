@@ -1,9 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import audio from '../../assets/images/fone.png';
-import imagem from '../../assets/images/foto.png';
-import medida from '../../assets/images/regua.png';
-import video from '../../assets/images/video.png';
+
 import engrenagem from '../../assets/images/engrenagem.png';
 import processamento from '../../assets/images/processamento.png';
 import ideia from '../../assets/images/ideia.png';
@@ -11,10 +7,13 @@ import devices from '../../assets/images/dispositivos.png';
 import ux from '../../assets/images/ux.png';
 import virus from '../../assets/images/virus.png';
 import tecnologia from '../../assets/images/tecnologia.png';
-import moeda from '../../assets/images/moeda.png';
-import Footer from '../../components/Footer';
 
-import { Container, Options, Descriptions } from './styles';
+import Footer from '../../components/Footer';
+import Options from '../../components/Options';
+import Features from '../../components/Features';
+import Header from '../../components/Header';
+
+import { Container, Descriptions } from './styles';
 import Rectangle from '../../assets/images/Rectangle.svg';
 
 function home() {
@@ -27,40 +26,9 @@ function home() {
                 </div>
                 <img src={Rectangle} alt="retangulo" />
                 <p>Escolha o que você quer converter:</p>
-                <Options>
-                    <div />
-                    <li>
-                        <Link to="/audio">
-                            <img src={audio} alt="audio" />
-                        </Link>
-                        <h6>Áudio</h6>
-                    </li>
-                    <li>
-                        <Link to="/video">
-                            <img src={video} alt="video" />
-                        </Link>
-                        <h6>VÍdeo</h6>
-                    </li>
-                    <li>
-                        <Link to="/imagem">
-                            <img src={imagem} alt="imagem" />
-                        </Link>
-                        <h6>Imagem</h6>
-                    </li>
-                    <li>
-                        <Link to="/medidas">
-                            <img src={medida} alt="medida" />
-                        </Link>
-                        <h6>Medida</h6>
-                    </li>
-                    <li>
-                        <Link to="/moeda">
-                            <img src={moeda} alt="moedas" />
-                        </Link>
-                        <h6>Moeda</h6>
-                    </li>
-                    <div />
-                </Options>
+                <Options />
+
+                <Header label="Nossas Features" />
 
                 <Descriptions>
                     <li>
@@ -116,6 +84,7 @@ function home() {
                         </h5>
                     </li>
                 </Descriptions>
+                <Features />
             </Container>
             <Footer />
         </>

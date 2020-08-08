@@ -1,3 +1,5 @@
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/prop-types */
 import React from 'react';
 
 import { FaExchangeAlt } from 'react-icons/fa';
@@ -20,10 +22,10 @@ function Pannel(props) {
                     <div id="convertTo">
                         <strong>Converter de</strong>
                         <select id="selecionarTipo">
-                            <option value="Dólar">Dólar</option>
-                            <option value="Euro">Euro</option>
-                            <option value="Real">Real</option>
-                            <option value="Libra">Libra</option>
+                            <option value="Dólar">{props.item1}</option>
+                            <option value="Euro">{props.item2}</option>
+                            <option value="Real">{props.item3}</option>
+                            <option value="Libra">{props.item4}</option>
                         </select>
                     </div>
                     <button id="alternate" type="button">
@@ -32,10 +34,10 @@ function Pannel(props) {
                     <div id="for">
                         <strong>Para</strong>
                         <select id="selecionarTipo">
-                            <option value="Dólar">Dólar</option>
-                            <option value="Euro">Euro</option>
-                            <option value="Real">Real</option>
-                            <option value="Libra">Libra</option>
+                            <option value="Dólar">{props.item1}</option>
+                            <option value="Euro">{props.item2}</option>
+                            <option value="Real">{props.item3}</option>
+                            <option value="Libra">{props.item4}</option>
                         </select>
                     </div>
                     <button id="convert" type="button">

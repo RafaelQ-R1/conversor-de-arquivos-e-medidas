@@ -8,6 +8,7 @@ import Title from '../../components/Title';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import engrenagem from '../../assets/images/engrenagem.png';
+import Options from '../../components/Options';
 
 function moeda() {
     return (
@@ -19,7 +20,9 @@ function moeda() {
                         <img src={engrenagem} alt="engrenagem" />
                     </Link>
                 </div>
+
                 <Title label="Converter moeda" />
+                <Options />
 
                 <Header label="Escolha qual moeda você quer converter" />
                 <Pannel>
