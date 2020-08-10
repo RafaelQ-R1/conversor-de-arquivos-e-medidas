@@ -1,8 +1,7 @@
-import styled, { keyframes } from 'styled-components';
-import { headShake } from 'react-animations';
+import styled from 'styled-components';
+
 import { darken } from 'polished';
 
-const flipAnimation = keyframes`${headShake}`;
 export const ListOptions = styled.ul`
     display: flex;
     flex-direction: row;
@@ -10,15 +9,15 @@ export const ListOptions = styled.ul`
     margin: 100px 0 150px 0;
 
     div {
-        border: #31b9f3 solid;
+        border: #31b9f3 4px solid;
         height: 80px;
         width: 2px;
-        margin: 15px 40px 0 40px;
+        margin: 50px 40px 0 40px;
     }
     li {
         display: flex;
         flex-direction: column;
-        margin: 0 25px 0 25px;
+        margin: 40px 25px 0 25px;
         background: #2d394e;
         align-items: center;
         justify-content: center;
@@ -46,16 +45,16 @@ export const ListOptions = styled.ul`
         }
         &:hover {
             border-color: ${darken(0.1, '#00f49c')};
-            animation: ${flipAnimation} 4s;
             cursor: pointer;
+            box-shadow: 0 0 1px #00f49c, 0 0 10px #00f49c;
 
             img {
                 filter: blur(0.8px);
                 opacity: 0.6;
             }
             h6 {
-                color: #00f49c;
                 text-decoration: underline;
+                text-shadow: 0 0 1px #00f49c, 0 0 10px #00f49c;
             }
         }
     }

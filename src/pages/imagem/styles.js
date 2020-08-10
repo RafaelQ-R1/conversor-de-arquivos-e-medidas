@@ -1,6 +1,10 @@
 import styled, { keyframes } from 'styled-components';
 import { darken } from 'polished';
 
+import { fadeInRight } from 'react-animations';
+
+const fadeInRightAnimation = keyframes`${fadeInRight}`;
+
 const rotate = keyframes`
 from {
     transform: rotate(0deg);
@@ -19,13 +23,6 @@ export const Container = styled.div`
         margin: 25px 25px 25px 37px;
         width: 900px;
         height: 100;
-    }
-    p {
-        font-weight: bold;
-        font-style: italic;
-        color: #31b9f3;
-        text-align: center;
-        font-size: 20px;
     }
 
     #divHeader {
@@ -66,6 +63,7 @@ export const Convert = styled.div`
     margin: 0 50px 50px 50px;
 
     #Size-limit {
+        animation: ${fadeInRightAnimation} 0.8s linear;
         display: flex;
         flex-direction: column;
         margin: 10px 0 0 0;
@@ -79,6 +77,7 @@ export const Convert = styled.div`
     }
 
     #Commands {
+        animation: ${fadeInRightAnimation} 1s linear;
         display: flex;
         flex-direction: row;
 

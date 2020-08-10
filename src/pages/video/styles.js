@@ -1,6 +1,10 @@
 import styled, { keyframes } from 'styled-components';
 import { darken } from 'polished';
 
+import { fadeInRight } from 'react-animations';
+
+const fadeInRightAnimation = keyframes`${fadeInRight}`;
+
 const rotate = keyframes`
 from {
     transform: rotate(0deg);
@@ -19,13 +23,6 @@ export const Container = styled.div`
         margin: 25px 25px 25px 37px;
         width: 900px;
         height: 100;
-    }
-    p {
-        font-weight: bold;
-        font-style: italic;
-        color: #31b9f3;
-        text-align: center;
-        font-size: 20px;
     }
 
     #divHeader {
@@ -66,6 +63,7 @@ export const Form = styled.form`
     margin: 30px 50px 30px 50px;
 
     #linha1 {
+        animation: ${fadeInRightAnimation} 0.8s linear;
         display: flex;
         flex-direction: row;
         input {
@@ -97,6 +95,7 @@ export const Form = styled.form`
     }
 
     #linha2 {
+        animation: ${fadeInRightAnimation} 1s linear;
         display: flex;
         flex-direction: row;
         #Converter {

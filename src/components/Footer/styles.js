@@ -23,6 +23,7 @@ export const Footer = styled.footer`
 
             &:hover {
                 color: #31b9f3;
+                text-shadow: 0 0 1px #00f49c, 0 0 10px #00f49c;
             }
         }
     }
@@ -51,7 +52,8 @@ export const Footer = styled.footer`
                     height: 20px;
                 }
                 &:hover {
-                    border-color: #00f49c;
+                    border-color: #31b9f3;
+                    box-shadow: 0 0 1px #00f49c, 0 0 10px #00f49c;
                 }
             }
         }

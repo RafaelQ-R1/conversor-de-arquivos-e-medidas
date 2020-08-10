@@ -11,6 +11,7 @@ import { IoMdSpeedometer } from 'react-icons/io';
 import { AiOutlineReload } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import Pannel from '../../components/Pannel';
+import Header from '../../components/Header';
 
 import engrenagem from '../../assets/images/engrenagem.png';
 import Options from '../../components/Options';
@@ -32,6 +33,7 @@ function Medidas() {
 
                 <Title label="Converter medida" />
                 <Options />
+                <Header label="Escolha o formato de vídeo que quer converter" />
 
                 <Pannel
                     strong="converter temperatura"

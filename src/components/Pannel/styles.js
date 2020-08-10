@@ -1,7 +1,11 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+import { fadeInRight, fadeInLeft } from 'react-animations';
+
+const fadeInRightAnimation = keyframes`${fadeInRight}`;
+const fadeInLeftAnimation = keyframes`${fadeInLeft}`;
 
 export const Body = styled.div`
-    margin: 40px 30px 40px 30px;
+    animation: ${fadeInLeftAnimation};
     #title {
         display: flex;
         flex-direction: column;
@@ -21,6 +25,7 @@ export const Body = styled.div`
         }
     }
     #teste {
+        animation: ${fadeInLeftAnimation};
         background-color: #0d2235;
         display: flex;
         flex-direction: row;
@@ -32,6 +37,7 @@ export const Body = styled.div`
         border-radius: 4px;
         height: 250px;
         display: flex;
+
         flex-direction: row;
 
         #line1 {
@@ -44,7 +50,7 @@ export const Body = styled.div`
                 flex-direction: column;
                 justify-content: space-between;
                 align-items: flex-start;
-                margin: 0 35px 0 70px;
+                margin: 0 20px 0 25px;
                 strong {
                     margin: 0 0 10px 0;
                     color: #00f49c;
@@ -59,7 +65,7 @@ export const Body = styled.div`
                 flex-direction: column;
                 justify-content: space-between;
                 align-items: flex-start;
-                margin: 0 40px 0 0;
+                margin: 0 20px 0 20px;
                 strong {
                     margin: 0 0 10px 0;
                     color: #00f49c;
@@ -71,7 +77,7 @@ export const Body = styled.div`
                     color: #31b9ec;
                     font-weight: bolder;
                     background-color: #00a02b;
-                    width: 170px;
+                    width: 210px;
                     height: 35px;
                     background-color: #0d2235;
                     border-width: 0 0 0 1px;
@@ -95,7 +101,7 @@ export const Body = styled.div`
             }
 
             #for {
-                margin: 0 8px 0 8px;
+                margin: 0 20px 0 20px;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
@@ -111,7 +117,7 @@ export const Body = styled.div`
                     color: #31b9ec;
                     font-weight: bolder;
                     background-color: #00a02b;
-                    width: 170px;
+                    width: 215px;
                     height: 35px;
                     background-color: #0d2235;
                     border-color: #31b9f3;
@@ -137,7 +143,7 @@ export const Body = styled.div`
             }
         }
         #line2 {
-            margin: 0 0 0 20px;
+            margin: 0 0 0 0;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
@@ -147,7 +153,7 @@ export const Body = styled.div`
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                width: 320px;
+                width: 375px;
                 height: 80px;
                 background-color: #183f63;
                 border: #000000 0.5px solid;
@@ -184,7 +190,7 @@ export const Body = styled.div`
                 flex-direction: column;
                 justify-content: center;
                 margin: 0 0 0 40px;
-                width: 400px;
+                width: 460px;
                 height: 80px;
                 background-color: #183f63;
                 border: #000000 0.5px solid;

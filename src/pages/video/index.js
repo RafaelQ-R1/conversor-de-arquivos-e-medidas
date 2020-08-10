@@ -25,6 +25,7 @@ function video() {
 
                 <Title label="Converter vídeo" />
                 <Options />
+                <Header label="Escolha o formato de vídeo que quer converter" />
 
                 <Form>
                     <div id="linha1">

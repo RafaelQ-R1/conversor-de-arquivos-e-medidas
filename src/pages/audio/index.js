@@ -23,6 +23,7 @@ function audio() {
 
                 <Title label="Converter áudio" />
                 <Options />
+                <Header label="Escolha o formato de vídeo que quer converter" />
 
                 <Form>
                     <div id="linha1">

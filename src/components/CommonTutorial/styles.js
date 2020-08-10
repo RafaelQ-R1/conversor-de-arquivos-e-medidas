@@ -9,13 +9,12 @@ export const Tutorial = styled.ol`
     li {
         margin: 20px 120px 20px 120px;
         #titulo-lista {
-            font-size: 20px;
             color: #00f492;
-            font-size: 15px;
+            font-size: 20px;
             margin-bottom: 10px;
         }
         #texto-lista {
-            font-size: 13px;
+            font-size: 15px;
             text-align: left;
             color: #31b9f3;
         }

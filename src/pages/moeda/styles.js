@@ -23,13 +23,6 @@ export const Container = styled.div`
         width: 900px;
         height: 100;
     }
-    p {
-        font-weight: bold;
-        font-style: italic;
-        color: #31b9f3;
-        text-align: center;
-        font-size: 20px;
-    }
 
     #divHeader {
         display: flex;
