@@ -13,12 +13,12 @@ export const Footer = styled.footer`
     #footerTexts {
         display: flex;
         flex-direction: column;
-        margin-top: 20px;
+        margin: 30px 0 30px 0;
         h5 {
             margin: 8px 0 8px 0;
             color: #00f49c;
-            font-size: 14px;
-            font-weight: bold;
+            font-size: 16px;
+            font-weight: bolder;
             cursor: pointer;
 
             &:hover {
@@ -45,11 +45,12 @@ export const Footer = styled.footer`
                 width: 50px;
                 height: 50px;
                 cursor: pointer;
+                font-size: 20px;
                 border: 2px #2d394e solid;
                 img {
                     position: absolute;
-                    width: 20px;
-                    height: 20px;
+                    width: 25px;
+                    height: 25px;
                 }
                 &:hover {
                     border-color: #31b9f3;

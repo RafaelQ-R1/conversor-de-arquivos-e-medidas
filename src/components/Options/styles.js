@@ -13,6 +13,7 @@ export const ListOptions = styled.ul`
         height: 80px;
         width: 2px;
         margin: 50px 40px 0 40px;
+        box-shadow: 0 0 1px #00f49c, 0 0 10px #31b9f3;
     }
     li {
         display: flex;
