@@ -1,6 +1,10 @@
 import styled, { keyframes } from 'styled-components';
 import { darken } from 'polished';
 
+import { flip } from 'react-animations';
+
+const flipAnimation = keyframes`${flip}`;
+
 const rotate = keyframes`
 from {
     transform: rotate(0deg);
@@ -139,6 +143,7 @@ export const Descriptions = styled.ul`
             color: #00f453;
             text-align: center;
             max-width: 150px;
+            font-size: 18px;
         }
 
         h5 {
@@ -147,17 +152,21 @@ export const Descriptions = styled.ul`
             color: #31b9f3;
             font-weight: 500;
             max-width: 200px;
+            font-size: 14px;
         }
 
         &:hover {
             cursor: pointer;
+            box-shadow: 0 0 1px #00f453, 0 0 10px #31b9f3;
 
             h4 {
-                color: #00f49c;
+                color: #00f453;
+                text-shadow: 0 0 1px #00f453, 0 0 10px #00f49c;
             }
             h5 {
                 text-decoration: underline;
-                color: #4441da;
+                color: #31b9f3;
+                text-shadow: 0 0 1px #31b9f3, 0 0 10px #00f49c;
             }
         }
     }

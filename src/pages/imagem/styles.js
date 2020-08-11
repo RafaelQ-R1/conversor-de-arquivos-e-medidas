@@ -191,7 +191,7 @@ export const Types = styled.h2`
     font-style: italic;
     font-weight: bold;
     text-align: center;
-    font-size: 12px;
+    font-size: 15px;
 `;
 
 export const Tutorial = styled.ol`

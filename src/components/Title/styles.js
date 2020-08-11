@@ -21,9 +21,9 @@ export const Title = styled.div`
         font-family: sans-serif;
         font-size: 25px;
         cursor: pointer;
-        font-weight: 500;
+        font-weight: bold;
         font-style: italic;
         color: #31b9f3;
-        text-shadow: 0 0 1px #00f49c, 0 0 10px #00f49c;
+        text-shadow: 0 0 1px #31b9f3, 0 0 10px #31b9f3;
     }
 `;

@@ -1,31 +1,12 @@
 import styled, { keyframes } from 'styled-components';
-import { fadeInRight, fadeInLeft } from 'react-animations';
+import { fadeInLeft } from 'react-animations';
 
-const fadeInRightAnimation = keyframes`${fadeInRight}`;
 const fadeInLeftAnimation = keyframes`${fadeInLeft}`;
 
 export const Body = styled.div`
     animation: ${fadeInLeftAnimation};
-    #title {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin: 90px 0 0 0;
-        text-align: center;
-        #icon {
-            size: 40px;
-        }
-        strong {
-            margin: 10px 0 0 0;
-            font-size: 20px;
-            text-decoration: underline;
-            color: #31b9f3;
-            color: #4739ab;
-        }
-    }
+
     #teste {
-        animation: ${fadeInLeftAnimation};
         background-color: #0d2235;
         display: flex;
         flex-direction: row;

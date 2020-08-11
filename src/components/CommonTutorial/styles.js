@@ -9,9 +9,10 @@ export const Tutorial = styled.ol`
     li {
         margin: 20px 120px 20px 120px;
         #titulo-lista {
-            color: #00f492;
             font-size: 20px;
             margin-bottom: 10px;
+            color: #00f492;
+            text-shadow: 0 0 1px #31b9f3, 0 0 10px #31b9f3;
         }
         #texto-lista {
             font-size: 15px;
