@@ -4,55 +4,10 @@ import { fadeInRight, fadeInUp } from 'react-animations';
 const fadeInRightAnimation = keyframes`${fadeInRight}`;
 const fadeInUpAnimation = keyframes`${fadeInUp}`;
 
-const rotate = keyframes`
-from {
-    transform: rotate(0deg);
-}
-to{
-    transform: rotate(360deg);
-}
-`;
-
 export const Container = styled.div`
     background: #171a23;
     height: '100%';
     padding-bottom: 100px;
-
-    img {
-        margin: 25px 25px 25px 37px;
-        width: 900px;
-        height: 100;
-    }
-
-    #divHeader {
-        display: flex;
-        justify-content: space-between;
-        img {
-            max-width: 40px;
-            position: absolute;
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 110px;
-            left: 0;
-            right: 0;
-            animation: ${rotate} 4s linear infinite;
-            cursor: pointer;
-        }
-        h6 {
-            color: #00f49c;
-            text-align: center;
-            position: absolute;
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 50px;
-            left: 0;
-            right: 0;
-            text-decoration: underline;
-            font-family: sans-serif;
-            font-size: 15px;
-            cursor: pointer;
-        }
-    }
 `;
 
 export const Pannel = styled.div`
@@ -66,8 +21,6 @@ export const Pannel = styled.div`
     border: #000000 0.5px solid;
     border-radius: 4px;
     height: 450px;
-    display: flex;
-    flex-direction: row;
     animation: ${fadeInRightAnimation} 2s;
 
     #date {
@@ -108,6 +61,7 @@ export const Pannel = styled.div`
 
             input {
                 width: 120px;
+                height: 30px;
             }
         }
         #convertTo {
@@ -303,6 +257,247 @@ export const Pannel = styled.div`
             font-size: 12px;
         }
     }
+
+    @media only screen and (max-width: 1034px) and (min-width: 890px) {
+        align-items: center;
+        justify-content: space-between;
+        margin: 40px 30px 40px 30px;
+        height: 400px;
+        width: 800px;
+
+        #line1 {
+            #value {
+                margin: 0 20px 0 25px;
+                strong {
+                    margin: 0 0 10px 0;
+                }
+
+                input {
+                    width: 120px;
+                }
+            }
+            #convertTo {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: flex-start;
+                margin: 0 20px 0 20px;
+                strong {
+                    margin: 0 0 10px 0;
+                }
+
+                select {
+                    margin: 0 0 0 0px;
+                    width: 170px;
+                    height: 35px;
+                }
+            }
+            #alternate {
+                margin: 25px 20px 0 20px;
+                height: 33px;
+                width: 60px;
+            }
+
+            #for {
+                margin: 0 20px 0 20px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: flex-start;
+                strong {
+                    margin: 0 0 10px 0;
+                }
+
+                select {
+                    margin: 0 0 0 0px;
+                    width: 170px;
+                    height: 35px;
+                }
+            }
+            #convert {
+                margin: 25px 20px 0 20px;
+
+                height: 33px;
+                width: 60px;
+            }
+        }
+    }
+    @media only screen and (max-width: 890px) and (min-width: 790px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        margin: 40px 30px 40px 30px;
+        height: 900px;
+        width: 780px;
+
+        #date {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0 0 0;
+            strong {
+                font-size: 15px;
+                text-decoration: underline;
+                color: #31b9f3;
+            }
+
+            input {
+                margin: 0 0 0 20px;
+                width: 190px;
+                border: #103454 2px solid;
+                height: 30px;
+            }
+        }
+
+        #line1 {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: space-around;
+
+            #value {
+                display: flex;
+                flex-direction: row;
+                margin: 0 20px 20px 25px;
+                strong {
+                    margin: 5px 80px 10px 0;
+                }
+
+                input {
+                    width: 180px;
+                }
+            }
+            #convertTo {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+                margin: 0 20px 0 20px;
+                strong {
+                    margin: 9px 32px 10px 0;
+                }
+
+                select {
+                    margin: 0 0 0 0px;
+                    width: 180px;
+                    height: 35px;
+                }
+            }
+            #alternate {
+                margin: 50px 20px 50px 20px;
+                height: 33px;
+                width: 100px;
+            }
+
+            #for {
+                display: flex;
+                flex-direction: row;
+                margin: 0 20px 0 20px;
+                justify-content: space-between;
+                align-items: flex-start;
+                strong {
+                    margin: 8px 85px 10px 0;
+                }
+
+                select {
+                    margin: 0 0 0 0px;
+                    width: 180px;
+                    height: 35px;
+                }
+            }
+            #convert {
+                margin: 50px 20px 50px 20px;
+                height: 33px;
+                width: 100px;
+            }
+        }
+    }
+    @media only screen and (max-width: 790px) and (min-width: 690px) {
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        margin: 40px 30px 40px 30px;
+        height: 370px;
+        width: 700px;
+
+        #date {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0 30px 23px;
+            strong {
+                font-size: 15px;
+                text-decoration: underline;
+                color: #31b9f3;
+            }
+
+            input {
+                margin: 0 0 0 20px;
+                width: 190px;
+                border: #103454 2px solid;
+                height: 30px;
+            }
+        }
+
+        #line1 {
+            #value {
+                margin: 0 20px 0 25px;
+                strong {
+                    margin: 0 0 10px 0;
+                }
+
+                input {
+                    width: 80px;
+                }
+            }
+            #convertTo {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: flex-start;
+                margin: 0 20px 0 20px;
+                strong {
+                    margin: 0 0 10px 0;
+                }
+
+                select {
+                    margin: 0 0 0 0px;
+                    width: 140px;
+                    height: 35px;
+                }
+            }
+            #alternate {
+                margin: 25px 20px 0 20px;
+                height: 33px;
+                width: 55px;
+            }
+
+            #for {
+                margin: 0 20px 0 20px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: flex-start;
+                strong {
+                    margin: 0 0 10px 0;
+                }
+
+                select {
+                    margin: 0 0 0 0px;
+                    width: 140px;
+                    height: 35px;
+                }
+            }
+            #convert {
+                margin: 25px 20px 0 20px;
+                height: 33px;
+                width: 55px;
+            }
+        }
+    }
 `;
 
 export const Details = styled.div`
@@ -314,4 +509,24 @@ export const Details = styled.div`
     font-size: 12px;
     font-weight: bold;
     animation: ${fadeInUpAnimation} 4s;
+
+    @media only screen and (max-width: 1024px) and (min-width: 840px) {
+        width: 700px;
+    }
+    @media only screen and (max-width: 840px) and (min-width: 729px) {
+        width: 600px;
+    }
+
+    @media only screen and (max-width: 729px) and (min-width: 655px) {
+        width: 500px;
+    }
+    @media only screen and (max-width: 655px) and (min-width: 594px) {
+        width: 450px;
+    }
+    @media only screen and (max-width: 594px) and (min-width: 500px) {
+        width: 370px;
+    }
+    @media only screen and (max-width: 500px) and (min-width: 300px) {
+        width: 300px;
+    }
 `;

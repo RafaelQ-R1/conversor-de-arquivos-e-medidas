@@ -7,12 +7,13 @@ import {
     IoMdInfinite,
     IoIosCloudDownload,
 } from 'react-icons/io';
+import { RiCpuLine } from 'react-icons/ri';
 import { ListaDiferenciais } from './styles';
 
 function Features() {
     return (
         <ListaDiferenciais>
-            <h2 id="Diferenciais">Porque nosso conversor é melhor:</h2>
+            <h2 id="Diferenciais">Porque nosso conversor é melhor</h2>
             <div>
                 <div id="elemento-lista">
                     <IoMdBrowsers size={40} color="#6746f4" />
@@ -34,6 +35,10 @@ function Features() {
                 <div id="elemento-lista">
                     <IoIosCloudDownload size={40} color="#6746f4" />
                     <h6 id="descricao">Não requer instalação de software</h6>
+                </div>
+                <div id="elemento-lista">
+                    <RiCpuLine size={40} color="#6746f4" />
+                    <h6 id="descricao">Usa tecnologias de última geração</h6>
                 </div>
             </div>
         </ListaDiferenciais>

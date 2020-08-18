@@ -1,33 +1,28 @@
 import React from 'react';
-import { FaTemperatureHigh, FaRulerCombined, FaClock } from 'react-icons/fa';
+import { FaTemperatureHigh, FaRulerCombined } from 'react-icons/fa';
 import { RiTimerLine } from 'react-icons/ri';
 import { IoMdSpeedometer } from 'react-icons/io';
 
-import { Link } from 'react-router-dom';
 import Pannel from '../../components/Pannel';
 import Header from '../../components/Header';
 
-import engrenagem from '../../assets/images/engrenagem.png';
 import Options from '../../components/Options';
 
 import Footer from '../../components/Footer';
 import Title from '../../components/Title';
+
 import { Container, TypeConversion } from './styles';
 
 function Medidas() {
     return (
         <>
             <Container>
-                <div id="divHeader">
-                    <Link to="/">
-                        <h6>Conversor de arquivos e medidas </h6>
-                        <img src={engrenagem} alt="engrenagem" />
-                    </Link>
-                </div>
-
-                <Title label="Converter medida" />
+                <Title
+                    label1="conversor de arquivos e medidas"
+                    label2="Converter medida"
+                />
                 <Options />
-                <Header label="Escolha o formato de vídeo que quer converter" />
+                <Header label="Escolha que tipo de medida quer converter" />
 
                 <TypeConversion>
                     <strong>Converter temperatura</strong>

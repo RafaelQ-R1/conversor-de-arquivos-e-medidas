@@ -1,6 +1,5 @@
 import React from 'react';
 
-import engrenagem from '../../assets/images/engrenagem.png';
 import processamento from '../../assets/images/processamento.png';
 import ideia from '../../assets/images/ideia.png';
 import devices from '../../assets/images/dispositivos.png';
@@ -12,20 +11,18 @@ import Footer from '../../components/Footer';
 import Options from '../../components/Options';
 import Features from '../../components/Features';
 import Header from '../../components/Header';
+import Title from '../../components/Title';
 
 import { Container, Descriptions } from './styles';
-import Rectangle from '../../assets/images/Rectangle.svg';
 
 function home() {
     return (
         <>
             <Container>
-                <div id="divHeader">
-                    <h6>Conversor de arquivos e medidas </h6>
-                    <img src={engrenagem} alt="engrenagem" />
-                </div>
-                <img src={Rectangle} alt="retangulo" />
-                <p>Escolha o que você quer converter:</p>
+                <Title
+                    label1="conversor de arquivos e medidas"
+                    label2="Escolha o que você quer converter"
+                />
                 <Options />
 
                 <Header label="Nossas Features" />

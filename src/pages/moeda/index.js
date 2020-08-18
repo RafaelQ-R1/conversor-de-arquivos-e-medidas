@@ -2,26 +2,20 @@ import React from 'react';
 
 import { FaExchangeAlt } from 'react-icons/fa';
 import { AiOutlineReload } from 'react-icons/ai';
-import { Link } from 'react-router-dom';
 import { Container, Pannel, Details } from './styles';
 import Title from '../../components/Title';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
-import engrenagem from '../../assets/images/engrenagem.png';
 import Options from '../../components/Options';
 
 function moeda() {
     return (
         <>
             <Container>
-                <div id="divHeader">
-                    <Link to="/">
-                        <h6>Conversor de arquivos e medidas </h6>
-                        <img src={engrenagem} alt="engrenagem" />
-                    </Link>
-                </div>
-
-                <Title label="Converter moeda" />
+                <Title
+                    label1="conversor de arquivos e medidas"
+                    label2="Converter moeda"
+                />
                 <Options />
 
                 <Header label="Escolha qual moeda você quer converter" />

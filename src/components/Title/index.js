@@ -1,14 +1,20 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
-import Rectangle from '../../assets/images/Rectangle.svg';
+import { Link } from 'react-router-dom';
+import engrenagem from '../../assets/images/engrenagem.png';
 import { Title } from './styles';
 
 const title = (props) => {
     return (
         <Title>
-            <img src={Rectangle} alt="retangulo" />
-            <p>{props.label}</p>
+            <div id="line1">
+                <Link to="/">
+                    <h6>{props.label1}</h6>
+                    <img src={engrenagem} alt="engrenagem" />
+                </Link>
+            </div>
+            <p id="screenName">{props.label2}</p>
         </Title>
     );
 };

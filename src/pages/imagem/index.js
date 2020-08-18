@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { Link } from 'react-router-dom';
-
 import Features from '../../components/Features';
 import { Container, Convert, Properties, Types } from './styles';
 
@@ -9,20 +7,17 @@ import Title from '../../components/Title';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import CommonTutorial from '../../components/CommonTutorial';
-import engrenagem from '../../assets/images/engrenagem.png';
+
 import Options from '../../components/Options';
 
 function imagem() {
     return (
         <>
             <Container>
-                <div id="divHeader">
-                    <Link to="/">
-                        <h6>Conversor de arquivos e medidas </h6>
-                        <img src={engrenagem} alt="engrenagem" />
-                    </Link>
-                </div>
-                <Title label="Converter imagem" />
+                <Title
+                    label1="conversor de arquivos e medidas"
+                    label2="Converter imagem"
+                />
                 <Options />
 
                 <Header label="Escolha a Imagem ou Foto a converter" />
@@ -78,29 +73,18 @@ function imagem() {
                 <Header label="Como usar a conversão de imagens:" />
 
                 <CommonTutorial
-                    title1="Copie o link de um vídeo"
-                    text1="  Para converter o seu ficheiro, primeiro tem que
-                    escolher um vídeo. Para isso basta ir até ao YouTube
-                    ou ao TikTok, ou a qualquer outro serviço de
-                    streaming de vídeos, e copiar o link do vídeo que
-                    queira converter."
-                    title2="Cole o link que copiou no campo de entrada"
-                    text2="    Abra o site do 2conv no seu navegador e cole o link
-                    do vídeo que quer converter no campo Inserir link do
-                    vídeo."
-                    title3="Escolha o formato de ficheiro que preferir"
-                    text3="  Depois de colar o link, escolha o formato de
-                    ficheiro que lhe der mais jeito. O 2conv é
-                    compatível com vários formatos de ficheiros de áudio
-                    e de vídeo, dando-lhe a possibilidade de escolher
-                    aquele que precisa, ou aquele que é compatível com o
-                    seu dispositivo."
-                    title4="  Clique em Converter para obter o ficheiro mp3"
-                    text4=" Este é o último passo! Tudo o que precisa de fazer
-                    agora é clicar em converter e esperar um pouco para
-                    que o seu ficheiro seja convertido. Depois basta
-                    transferir o seu ficheiro diretamente para o seu
-                    dispositivo ou partilhá-lo por e-mail ou dropbox."
+                    title1="Clique em buscar ou arraste um imagem"
+                    text1="  Para converter a seu imagem, clique no botão buscar e selecione um
+                    áudio ou arraste ele até a caixa de texto ao lado do botão 'buscar'."
+                    title2="Selecione o formato que deseja converter"
+                    text2="Clique na caixa ao lado do texto 'Saída' para escolher um formato de imagem a ser convertido.
+                    Apenas os formatos presentes na caixa são válidos ."
+                    title3="Clique em 'Converter'"
+                    text3="Assim que clicar em 'Converter' a conversão do seu arquivo será iniciada.
+                    O tempo de conversão vai variar de acordo com o tamanho e tipo de arquivo"
+                    title4="Aguarde e depois faça o download"
+                    text4=" Assim que a converstão terminar, seu arquivo de imagem convertido estará disponível
+                     para download no link abaixo. Você pode fazer quantas conversões quiser após essa"
                 />
                 <Features />
             </Container>

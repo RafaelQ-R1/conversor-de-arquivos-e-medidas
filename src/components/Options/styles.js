@@ -42,7 +42,7 @@ export const ListOptions = styled.ul`
             text-align: center;
             font-size: ${(props) => props.widthFont || '20px'};
             position: absolute;
-            margin-top: 170px;
+            margin-top: 80px;
         }
         &:hover {
             border-color: ${darken(0.1, '#00f49c')};
@@ -56,6 +56,91 @@ export const ListOptions = styled.ul`
             h6 {
                 text-decoration: underline;
                 text-shadow: 0 0 1px #00f49c, 0 0 10px #00f49c;
+            }
+        }
+    }
+    @media only screen and (max-width: 1000px) and (min-width: 880px) {
+        div {
+            height: 70px;
+            width: 2px;
+            margin: 50px 40px 0 40px;
+        }
+        li {
+            margin: 40px 20px 0 20px;
+            width: ${(props) => props.altLi || '90px'};
+            height: ${(props) => props.heightLi || '90px'};
+            img {
+                width: ${(props) => props.widthImg || '50px'};
+                height: ${(props) => props.heightImg || '50px'};
+            }
+
+            h6 {
+                font-size: ${(props) => props.widthFont || '17px'};
+                margin-top: 70px;
+            }
+        }
+    }
+    @media only screen and (max-width: 880px) and (min-width: 800px) {
+        div {
+            height: 60px;
+            width: 2px;
+            margin: 55px 40px 0 40px;
+        }
+        li {
+            margin: 40px 17px 0 17px;
+            width: ${(props) => props.altLi || '90px'};
+            height: ${(props) => props.heightLi || '90px'};
+            img {
+                width: ${(props) => props.widthImg || '50px'};
+                height: ${(props) => props.heightImg || '50px'};
+            }
+
+            h6 {
+                font-size: ${(props) => props.widthFont || '17px'};
+                margin-top: 70px;
+            }
+        }
+    }
+    @media only screen and (max-width: 800px) and (min-width: 640px) {
+        div {
+            height: 60px;
+            width: 2px;
+            margin: 50px 30px 0 30px;
+        }
+        li {
+            margin: 40px 10px 0 10px;
+            width: ${(props) => props.altLi || '80px'};
+            height: ${(props) => props.heightLi || '80px'};
+            img {
+                width: ${(props) => props.widthImg || '40px'};
+                height: ${(props) => props.heightImg || '40px'};
+            }
+
+            h6 {
+                font-size: ${(props) => props.widthFont || '17px'};
+                margin-top: 60px;
+            }
+        }
+    }
+
+    @media only screen and (max-width: 640px) and (min-width: 100px) {
+        div {
+            height: 50px;
+            width: 2px;
+            margin: 50px 10px 0 10px;
+        }
+        li {
+            margin: 40px 7px 0 7px;
+            width: ${(props) => props.altLi || '70px'};
+            height: ${(props) => props.heightLi || '70px'};
+            img {
+                width: ${(props) => props.widthImg || '40px'};
+                height: ${(props) => props.heightImg || '40px'};
+            }
+
+            h6 {
+                font-size: ${(props) => props.widthFont || '17px'};
+                margin-top: 60px;
             }
         }
     }

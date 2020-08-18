@@ -14,7 +14,7 @@ export const Footer = styled.footer`
         display: flex;
         flex-direction: column;
         margin: 30px 0 30px 0;
-        h5 {
+        p {
             margin: 8px 0 8px 0;
             color: #00f49c;
             font-size: 16px;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import twitter from '../../assets/images/twitter.png';
 import instagram from '../../assets/images/instagram.png';
 import facebook from '../../assets/images/facebook.png';
@@ -9,10 +10,18 @@ function footer() {
     return (
         <Footer>
             <div id="footerTexts">
-                <h5>Sobre</h5>
-                <h5>Termos de uso</h5>
-                <h5>Contatos</h5>
-                <h5>Parceiros</h5>
+                <Link to="/sobre" style={{ textDecoration: 'none' }}>
+                    <p>Sobre</p>
+                </Link>
+                <Link to="/termosdeuso" style={{ textDecoration: 'none' }}>
+                    <p>Termos de uso</p>
+                </Link>
+                <Link to="/contatos" style={{ textDecoration: 'none' }}>
+                    <p>Contatos</p>
+                </Link>
+                <Link to="/parceiros" style={{ textDecoration: 'none' }}>
+                    <p>Parceiros</p>
+                </Link>
             </div>
             <div>
                 <ul>
