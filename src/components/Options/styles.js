@@ -123,7 +123,7 @@ export const ListOptions = styled.ul`
         }
     }
 
-    @media only screen and (max-width: 640px) and (min-width: 100px) {
+    @media only screen and (max-width: 640px) and (min-width: 580px) {
         div {
             height: 50px;
             width: 2px;
@@ -140,7 +140,28 @@ export const ListOptions = styled.ul`
 
             h6 {
                 font-size: ${(props) => props.widthFont || '17px'};
-                margin-top: 60px;
+                margin-top: 50px;
+            }
+        }
+    }
+    @media only screen and (max-width: 580px) and (min-width: 100px) {
+        div {
+            height: 50px;
+            width: 2px;
+            margin: 45px 10px 0 10px;
+        }
+        li {
+            margin: 40px 7px 0 7px;
+            width: ${(props) => props.altLi || '62px'};
+            height: ${(props) => props.heightLi || '62px'};
+            img {
+                width: ${(props) => props.widthImg || '35px'};
+                height: ${(props) => props.heightImg || '35px'};
+            }
+
+            h6 {
+                font-size: ${(props) => props.widthFont || '14px'};
+                margin-top: 50px;
             }
         }
     }

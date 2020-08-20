@@ -9,6 +9,7 @@ export const Container = styled.div`
     background: #171a23;
     height: '100%';
     padding-bottom: 100px;
+    border: #1b1e28 0.5px solid;
 `;
 
 export const Form = styled.form`
@@ -16,6 +17,23 @@ export const Form = styled.form`
     flex-direction: row;
     justify-content: space-between;
     margin: 30px 50px 30px 50px;
+
+    @media only screen and (max-width: 980px) and (min-width: 840px) {
+        flex-wrap: wrap;
+        margin: 0 0 0 200px;
+    }
+    @media only screen and (max-width: 840px) and (min-width: 690px) {
+        flex-wrap: wrap;
+        margin: 0 0 0 100px;
+    }
+    @media only screen and (max-width: 690px) and (min-width: 622px) {
+        flex-wrap: wrap;
+        margin: 0 0 0 50px;
+    }
+    @media only screen and (max-width: 622px) and (min-width: 100px) {
+        flex-wrap: wrap;
+        margin: 0 0 0 10px;
+    }
 
     #linha1 {
         animation: ${fadeInRightAnimation} 0.8s linear;
@@ -30,6 +48,9 @@ export const Form = styled.form`
             border: #103454 2px solid;
             border-radius: 4px;
             text-align: center;
+            @media only screen and (max-width: 622px) and (min-width: 100px) {
+                width: 300px;
+            }
         }
         #buscar {
             font-weight: bolder;
@@ -47,12 +68,16 @@ export const Form = styled.form`
                 cursor: pointer;
             }
         }
+        @media only screen and (max-width: 980px) and (min-width: 100px) {
+            margin: 0 130px 0 0;
+        }
     }
 
     #linha2 {
         animation: ${fadeInRightAnimation} 1s linear;
         display: flex;
         flex-direction: row;
+
         #Converter {
             font-size: 15px;
             color: #31b9ec;
@@ -90,10 +115,14 @@ export const Form = styled.form`
             -moz-appearance: none;
             appearance: none;
             background-position: 218px center;
+
             &:hover {
                 color: ${darken(0.1, '#1c4367')};
                 cursor: pointer;
             }
+        }
+        @media only screen and (max-width: 980px) and (min-width: 100px) {
+            margin: 20px 0 0 0;
         }
     }
 `;

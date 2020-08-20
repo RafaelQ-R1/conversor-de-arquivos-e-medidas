@@ -8,6 +8,7 @@ export const Container = styled.div`
     background: #171a23;
     height: '100%';
     padding-bottom: 100px;
+    border: #1b1e28 0.5px solid;
 `;
 
 export const Pannel = styled.div`
@@ -21,7 +22,22 @@ export const Pannel = styled.div`
     border: #000000 0.5px solid;
     border-radius: 4px;
     height: 450px;
+    width: 920px;
     animation: ${fadeInRightAnimation} 2s;
+
+    @media only screen and (max-width: 1035px) and (min-width: 100px) {
+        height: 800px;
+        width: 600px;
+
+        margin: auto;
+        margin-bottom: 40px;
+    }
+    @media only screen and (max-width: 695px) and (min-width: 100px) {
+        height: 800px;
+        width: 470px;
+        margin: auto;
+        margin-bottom: 40px;
+    }
 
     #date {
         display: flex;
@@ -41,6 +57,9 @@ export const Pannel = styled.div`
             border: #103454 2px solid;
             height: 30px;
         }
+        @media only screen and (max-width: 1035px) and (min-width: 100px) {
+            margin-bottom: 0;
+        }
     }
 
     #line1 {
@@ -48,6 +67,11 @@ export const Pannel = styled.div`
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
+        @media only screen and (max-width: 1035px) and (min-width: 100px) {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
         #value {
             display: flex;
             flex-direction: column;
@@ -62,6 +86,9 @@ export const Pannel = styled.div`
             input {
                 width: 120px;
                 height: 30px;
+            }
+            @media only screen and (max-width: 1035px) and (min-width: 100px) {
+                margin: 0 0 20px 20px;
             }
         }
         #convertTo {
@@ -88,10 +115,13 @@ export const Pannel = styled.div`
                 border-radius: 2px;
                 border: #103454 4px solid;
                 text-align: center;
-                -webkit-appearance: none; /* Remove estilo padrão do Chrome */
-                -moz-appearance: none; /* Remove estilo padrão do FireFox */
-                appearance: none; /* Remove estilo padrão do FireFox*/
-                background-position: 218px center; /*Posição da imagem do background*/
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                background-position: 218px center;
+            }
+            @media only screen and (max-width: 1035px) and (min-width: 100px) {
+                margin: 0 0 20px 20px;
             }
         }
         #alternate {
@@ -135,6 +165,9 @@ export const Pannel = styled.div`
                 appearance: none;
                 background-position: 218px center;
             }
+            @media only screen and (max-width: 1035px) and (min-width: 100px) {
+                margin: 20px 0 20px 20px;
+            }
         }
         #convert {
             margin: 25px 20px 0 20px;
@@ -152,6 +185,10 @@ export const Pannel = styled.div`
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+        @media only screen and (max-width: 1035px) and (min-width: 100px) {
+            flex-direction: column;
+            align-items: flex-start;
+        }
 
         #box1 {
             display: flex;
@@ -199,6 +236,10 @@ export const Pannel = styled.div`
             background-color: #183f63;
             border: #000000 0.5px solid;
             border-radius: 4px;
+            @media only screen and (max-width: 1035px) and (min-width: 100px) {
+                margin: 10px 0 20px 0;
+                width: 375px;
+            }
             #box2Line1 {
                 display: flex;
                 flex-direction: row;
@@ -257,247 +298,6 @@ export const Pannel = styled.div`
             font-size: 12px;
         }
     }
-
-    @media only screen and (max-width: 1034px) and (min-width: 890px) {
-        align-items: center;
-        justify-content: space-between;
-        margin: 40px 30px 40px 30px;
-        height: 400px;
-        width: 800px;
-
-        #line1 {
-            #value {
-                margin: 0 20px 0 25px;
-                strong {
-                    margin: 0 0 10px 0;
-                }
-
-                input {
-                    width: 120px;
-                }
-            }
-            #convertTo {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                align-items: flex-start;
-                margin: 0 20px 0 20px;
-                strong {
-                    margin: 0 0 10px 0;
-                }
-
-                select {
-                    margin: 0 0 0 0px;
-                    width: 170px;
-                    height: 35px;
-                }
-            }
-            #alternate {
-                margin: 25px 20px 0 20px;
-                height: 33px;
-                width: 60px;
-            }
-
-            #for {
-                margin: 0 20px 0 20px;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                align-items: flex-start;
-                strong {
-                    margin: 0 0 10px 0;
-                }
-
-                select {
-                    margin: 0 0 0 0px;
-                    width: 170px;
-                    height: 35px;
-                }
-            }
-            #convert {
-                margin: 25px 20px 0 20px;
-
-                height: 33px;
-                width: 60px;
-            }
-        }
-    }
-    @media only screen and (max-width: 890px) and (min-width: 790px) {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        margin: 40px 30px 40px 30px;
-        height: 900px;
-        width: 780px;
-
-        #date {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-            margin: 20px 0 0 0;
-            strong {
-                font-size: 15px;
-                text-decoration: underline;
-                color: #31b9f3;
-            }
-
-            input {
-                margin: 0 0 0 20px;
-                width: 190px;
-                border: #103454 2px solid;
-                height: 30px;
-            }
-        }
-
-        #line1 {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: space-around;
-
-            #value {
-                display: flex;
-                flex-direction: row;
-                margin: 0 20px 20px 25px;
-                strong {
-                    margin: 5px 80px 10px 0;
-                }
-
-                input {
-                    width: 180px;
-                }
-            }
-            #convertTo {
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: flex-start;
-                margin: 0 20px 0 20px;
-                strong {
-                    margin: 9px 32px 10px 0;
-                }
-
-                select {
-                    margin: 0 0 0 0px;
-                    width: 180px;
-                    height: 35px;
-                }
-            }
-            #alternate {
-                margin: 50px 20px 50px 20px;
-                height: 33px;
-                width: 100px;
-            }
-
-            #for {
-                display: flex;
-                flex-direction: row;
-                margin: 0 20px 0 20px;
-                justify-content: space-between;
-                align-items: flex-start;
-                strong {
-                    margin: 8px 85px 10px 0;
-                }
-
-                select {
-                    margin: 0 0 0 0px;
-                    width: 180px;
-                    height: 35px;
-                }
-            }
-            #convert {
-                margin: 50px 20px 50px 20px;
-                height: 33px;
-                width: 100px;
-            }
-        }
-    }
-    @media only screen and (max-width: 790px) and (min-width: 690px) {
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        margin: 40px 30px 40px 30px;
-        height: 370px;
-        width: 700px;
-
-        #date {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin: 20px 0 30px 23px;
-            strong {
-                font-size: 15px;
-                text-decoration: underline;
-                color: #31b9f3;
-            }
-
-            input {
-                margin: 0 0 0 20px;
-                width: 190px;
-                border: #103454 2px solid;
-                height: 30px;
-            }
-        }
-
-        #line1 {
-            #value {
-                margin: 0 20px 0 25px;
-                strong {
-                    margin: 0 0 10px 0;
-                }
-
-                input {
-                    width: 80px;
-                }
-            }
-            #convertTo {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                align-items: flex-start;
-                margin: 0 20px 0 20px;
-                strong {
-                    margin: 0 0 10px 0;
-                }
-
-                select {
-                    margin: 0 0 0 0px;
-                    width: 140px;
-                    height: 35px;
-                }
-            }
-            #alternate {
-                margin: 25px 20px 0 20px;
-                height: 33px;
-                width: 55px;
-            }
-
-            #for {
-                margin: 0 20px 0 20px;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                align-items: flex-start;
-                strong {
-                    margin: 0 0 10px 0;
-                }
-
-                select {
-                    margin: 0 0 0 0px;
-                    width: 140px;
-                    height: 35px;
-                }
-            }
-            #convert {
-                margin: 25px 20px 0 20px;
-                height: 33px;
-                width: 55px;
-            }
-        }
-    }
 `;
 
 export const Details = styled.div`
@@ -512,21 +312,27 @@ export const Details = styled.div`
 
     @media only screen and (max-width: 1024px) and (min-width: 840px) {
         width: 700px;
+        margin: auto;
     }
     @media only screen and (max-width: 840px) and (min-width: 729px) {
         width: 600px;
+        margin: auto;
     }
 
     @media only screen and (max-width: 729px) and (min-width: 655px) {
         width: 500px;
+        margin: auto;
     }
     @media only screen and (max-width: 655px) and (min-width: 594px) {
         width: 450px;
+        margin: auto;
     }
     @media only screen and (max-width: 594px) and (min-width: 500px) {
         width: 370px;
+        margin: auto;
     }
     @media only screen and (max-width: 500px) and (min-width: 300px) {
         width: 300px;
+        margin: auto;
     }
 `;

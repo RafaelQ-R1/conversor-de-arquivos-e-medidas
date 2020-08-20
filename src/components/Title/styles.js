@@ -21,7 +21,7 @@ export const Title = styled.div`
         background-color: #0d2235;
         width: 900px;
         height: 170px;
-        margin-top: 20px;
+
         border: solid 1px #171a1d;
         border-radius: 3px;
 

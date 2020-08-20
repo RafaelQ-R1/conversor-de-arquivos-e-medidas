@@ -21,11 +21,31 @@ export const Body = styled.div`
 
         flex-direction: row;
 
+        @media only screen and (max-width: 1024px) and (min-width: 750px) {
+            height: 420px;
+            width: 700px;
+            margin: auto;
+        }
+        @media only screen and (max-width: 750px) and (min-width: 100px) {
+            height: 670px;
+            width: 450px;
+            margin: auto;
+        }
+
         #line1 {
             display: flex;
             flex-direction: row;
             align-items: center;
             justify-content: space-between;
+            @media only screen and (max-width: 1024px) and (min-width: 100px) {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            @media only screen and (max-width: 750px) and (min-width: 100px) {
+                margin: 0 130px 0 0;
+            }
+
             #value {
                 display: flex;
                 flex-direction: column;
@@ -39,6 +59,12 @@ export const Body = styled.div`
 
                 input {
                     width: 120px;
+                }
+                @media only screen and (max-width: 1024px) and (min-width: 750px) {
+                    margin: 0 0 20px 20px;
+                }
+                @media only screen and (max-width: 750px) and (min-width: 100px) {
+                    margin: 0 0 20px 20px;
                 }
             }
             #convertTo {
@@ -70,6 +96,9 @@ export const Body = styled.div`
                     appearance: none; /* Remove estilo padrão do FireFox*/
                     background-position: 218px center; /*Posição da imagem do background*/
                 }
+                @media only screen and (max-width: 1024px) and (min-width: 750px) {
+                    margin: 0 0 20px 20px;
+                }
             }
             #alternate {
                 margin: 25px 20px 0 20px;
@@ -79,6 +108,13 @@ export const Body = styled.div`
                 color: #00f453;
                 border: #31b4d2 2px solid;
                 border-radius: 4px;
+                @media only screen and (max-width: 1024px) and (min-width: 750px) {
+                    margin: 20px 0 20px 20px;
+                }
+
+                @media only screen and (max-width: 750px) and (min-width: 100px) {
+                    margin: 35px 0 35px 20px;
+                }
             }
 
             #for {
@@ -112,6 +148,9 @@ export const Body = styled.div`
                     appearance: none;
                     background-position: 218px center;
                 }
+                @media only screen and (max-width: 1024px) and (min-width: 750px) {
+                    margin: 20px 0 20px 20px;
+                }
             }
             #convert {
                 margin: 25px 20px 0 20px;
@@ -121,6 +160,14 @@ export const Body = styled.div`
                 color: #00f453;
                 border: #31b4d2 2px solid;
                 border-radius: 4px;
+
+                @media only screen and (max-width: 1024px) and (min-width: 750px) {
+                    margin: 20px 0 20px 20px;
+                }
+
+                @media only screen and (max-width: 750px) and (min-width: 100px) {
+                    margin: 35px 0 35px 20px;
+                }
             }
         }
         #line2 {
@@ -129,6 +176,10 @@ export const Body = styled.div`
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
+            @media only screen and (max-width: 1024px) and (min-width: 100px) {
+                flex-direction: column;
+                align-items: flex-start;
+            }
 
             #box1 {
                 display: flex;
@@ -139,6 +190,12 @@ export const Body = styled.div`
                 background-color: #183f63;
                 border: #000000 0.5px solid;
                 border-radius: 4px;
+                @media only screen and (max-width: 1024px) and (min-width: 100px) {
+                    margin: 0 0 60px 40px;
+                }
+                @media only screen and (max-width: 750px) and (min-width: 100px) {
+                    margin: 0 0 20px 20px;
+                }
 
                 #box1Line1 {
                     display: flex;
@@ -176,6 +233,13 @@ export const Body = styled.div`
                 background-color: #183f63;
                 border: #000000 0.5px solid;
                 border-radius: 4px;
+                @media only screen and (max-width: 1024px) and (min-width: 100px) {
+                    width: 375px;
+                }
+                @media only screen and (max-width: 750px) and (min-width: 100px) {
+                    margin: 0 0 0 20px;
+                }
+
                 #box2Line1 {
                     display: flex;
                     flex-direction: row;

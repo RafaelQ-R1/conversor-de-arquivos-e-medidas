@@ -4,6 +4,7 @@ export const Container = styled.div`
     background: #171a23;
     height: '100%';
     padding-bottom: 100px;
+    border: #1b1e28 0.5px solid;
 `;
 
 export const Descriptions = styled.ul`
@@ -19,9 +20,12 @@ export const Descriptions = styled.ul`
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin: 0 80px 100px 0px;
+        margin: 0 80px 50px 0px;
         height: 250px;
         width: 200px;
+        @media only screen and (max-width: 985px) and (min-width: 100px) {
+            margin: 0 80px 10px 0px;
+        }
 
         img {
             max-width: 50px;

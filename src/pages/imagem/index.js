@@ -30,13 +30,15 @@ function imagem() {
                     </div>
 
                     <div id="Commands">
-                        <input
-                            readOnly
-                            placeholder="Clique em buscar ou arraste o imagem aqui"
-                        />
-                        <button id="Browse" type="button">
-                            Buscar
-                        </button>
+                        <div>
+                            <input
+                                readOnly
+                                placeholder="Clique em buscar ou arraste o imagem aqui"
+                            />
+                            <button id="Browse" type="button">
+                                Buscar
+                            </button>
+                        </div>
                         <button id="Convert" type="button">
                             converter
                         </button>
