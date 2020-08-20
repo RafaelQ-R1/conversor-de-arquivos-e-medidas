@@ -10,6 +10,7 @@ import Options from '../../components/Options';
 
 import Footer from '../../components/Footer';
 import Title from '../../components/Title';
+import Features from '../../components/Features';
 
 import { Container, TypeConversion } from './styles';
 
@@ -62,6 +63,7 @@ function Medidas() {
                     item3="Horas"
                     item4="Dias"
                 />
+                <Features />
             </Container>
             <Footer />
         </>

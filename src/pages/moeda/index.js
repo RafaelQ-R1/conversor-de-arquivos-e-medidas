@@ -1,12 +1,14 @@
 import React from 'react';
 
-import { FaExchangeAlt } from 'react-icons/fa';
+import { FaExchangeAlt, FaBitcoin } from 'react-icons/fa';
 import { AiOutlineReload } from 'react-icons/ai';
-import { Container, Pannel, Details } from './styles';
+
+import { Container, Pannel, Details, TypeConversion } from './styles';
 import Title from '../../components/Title';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import Options from '../../components/Options';
+import Features from '../../components/Features';
 
 function moeda() {
     return (
@@ -19,6 +21,11 @@ function moeda() {
                 <Options />
 
                 <Header label="Escolha qual moeda você quer converter" />
+
+                <TypeConversion>
+                    <strong>Converter moeda</strong>
+                    <FaBitcoin size={35} color="#6a47fa" />
+                </TypeConversion>
                 <Pannel>
                     <div id="date">
                         <strong>DATA DA COTAÇÃO:</strong>
@@ -131,6 +138,7 @@ function moeda() {
                         </li>
                     </ul>
                 </Details>
+                <Features />
             </Container>
             <Footer />
         </>

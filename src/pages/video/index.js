@@ -64,9 +64,7 @@ function video() {
                 <Features />
 
                 <Rodape>
-                    <h2>
-                        Converta seus vídeos do YouTube para qualquer formato
-                    </h2>
+                    <h2>Converta seus vídeos do para qualquer formato</h2>
                     <strong>
                         Este site é um dos melhores conversores de músicas do
                         YouTube, suportando todos os formatos possíveis de
