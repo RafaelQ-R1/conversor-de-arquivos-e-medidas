@@ -1,16 +1,53 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { FaExchangeAlt, FaBitcoin } from 'react-icons/fa';
 import { AiOutlineReload } from 'react-icons/ai';
 
 import { Container, Pannel, Details, TypeConversion } from './styles';
+import Api from '../../services/api';
 import Title from '../../components/Title';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import Options from '../../components/Options';
 import Features from '../../components/Features';
+import api from '../../services/api';
 
-function moeda() {
+export default function Moeda() {
+    const [selectedDate, setSelectedDate] = useState(new Date());
+    const [valueToConvert, setValueToConvert] = useState(0);
+    const [fromCurrency, setFromCurrency] = useState();
+    const [toCurrency, setToCurrency] = useState();
+    const [exchangeRate, setExchangeRate] = useState();
+    const [currencyOptions, setCurrencyOptions] = useState([]);
+    const [amount, setAmount] = useState(1);
+    const [amountInFromCurrency, setAmountInFromCurrency] = useState(true);
+
+    const BASE_URL = 'https://api.exchangeratesapi.io/latest';
+
+    const convertFromCurrencyToCurrency = () => {
+        if (fromCurrency != null && toCurrency != null) {
+            fetch(`${BASE_URL}?base=${fromCurrency}&symbols=${toCurrency}`)
+                .then((res) => res.json())
+                .then((data) => setExchangeRate(data.rates[toCurrency]));
+        }
+    };
+
+    const changeCoinA = (e) => {
+        e.preventDefault();
+        setFromCurrency(e.target.value);
+    };
+
+    const changeCoinB = (e) => {
+        e.preventDefault();
+        setToCurrency(e.target.value);
+    };
+
+    const alternateValues = (e) => {
+        e.preventDefault();
+        setFromCurrency(toCurrency);
+        setToCurrency(fromCurrency);
+    };
+
     return (
         <>
             <Container>
@@ -29,35 +66,59 @@ function moeda() {
                 <Pannel>
                     <div id="date">
                         <strong>DATA DA COTAÇÃO:</strong>
-                        <input />
+                        <input
+                            value={selectedDate.toDateString()}
+                            readOnly={false}
+                        />
                     </div>
                     <div id="line1">
                         <div id="value">
                             <strong>Valor</strong>
-                            <input />
+                            <input
+                                value={valueToConvert}
+                                onChange={(e) =>
+                                    setValueToConvert(e.target.value)
+                                }
+                            />
                         </div>
                         <div id="convertTo">
                             <strong>Converter de</strong>
-                            <select id="selecionarTipo">
-                                <option value="Dólar">Dólar</option>
-                                <option value="Euro">Euro</option>
+                            <select
+                                id="selecionarTipo"
+                                onChange={changeCoinA}
+                                value={fromCurrency}
+                            >
+                                <option value="USD">USD</option>
+                                <option value="BRL">BRL</option>
                                 <option value="Real">Real</option>
                                 <option value="Libra">Libra</option>
                             </select>
                         </div>
-                        <button id="alternate" type="button">
+                        <button
+                            id="alternate"
+                            type="button"
+                            onClick={alternateValues}
+                        >
                             <FaExchangeAlt size={20} />
                         </button>
                         <div id="for">
                             <strong>Para</strong>
-                            <select id="selecionarTipo">
-                                <option value="Dólar">Dólar</option>
-                                <option value="Euro">Euro</option>
+                            <select
+                                id="selecionarTipo"
+                                onChange={changeCoinB}
+                                value={toCurrency}
+                            >
+                                <option value="USD">USD</option>
+                                <option value="BRL">BRl</option>
                                 <option value="Real">Real</option>
                                 <option value="Libra">Libra</option>
                             </select>
                         </div>
-                        <button id="convert" type="button">
+                        <button
+                            id="convert"
+                            type="button"
+                            onClick={convertFromCurrencyToCurrency}
+                        >
                             <AiOutlineReload size={20} />
                         </button>
                     </div>
@@ -65,32 +126,30 @@ function moeda() {
                         <div id="box1">
                             <div id="box1Line1">
                                 <strong id="strong1">Conversão de: </strong>
-                                <strong id="strong2">Real (BRL)</strong>
+                                <strong id="strong2">{fromCurrency}</strong>
                             </div>
                             <div id="box1Line2">
                                 <strong id="strong3">Valor a converter:</strong>
-                                <strong id="strong4">1,00</strong>
+                                <strong id="strong4">{valueToConvert}</strong>
                             </div>
                         </div>
                         <div id="box2">
                             <div id="box2Line1">
                                 <strong id="strong5">Para:</strong>
-                                <strong id="strong6">
-                                    Dólar dos Estados Unidos/USD (220)
-                                </strong>
+                                <strong id="strong6">{toCurrency}</strong>
                             </div>
                             <div id="box2Line2">
                                 <strong id="strong7">
                                     Resultado da conversão:
                                 </strong>
-                                <strong id="strong8">0,1884 </strong>
+                                <strong id="strong8">{exchangeRate}</strong>
                             </div>
                         </div>
                     </div>
                     <div id="details">
                         <div id="dateCotation">
                             <strong>Data da cotação utilizada:</strong>
-                            <h6>02/08/2020</h6>
+                            <h6>{selectedDate.toDateString()}</h6>
                         </div>
                         <div id="tax">
                             <strong>Taxa:</strong>
@@ -144,5 +203,3 @@ function moeda() {
         </>
     );
 }
-
-export default moeda;
