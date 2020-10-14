@@ -1,7 +1,9 @@
 import Axios from 'axios';
 
-const api = Axios.create({
+export const apiCurrency = Axios.create({
     baseURL: 'https://api.exchangeratesapi.io/latest',
 });
 
-export default api;
+export const apiLocal = Axios.create({
+    baseURL: 'http://localhost:3333',
+});

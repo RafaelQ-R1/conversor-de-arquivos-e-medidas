@@ -15,7 +15,7 @@ export const Container = styled.div`
 export const Form = styled.form`
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     margin: 30px 50px 30px 50px;
 
     @media only screen and (max-width: 980px) and (min-width: 840px) {
@@ -35,95 +35,48 @@ export const Form = styled.form`
         margin: 0 0 0 10px;
     }
 
-    #linha1 {
-        animation: ${fadeInRightAnimation} 0.8s linear;
-        display: flex;
-        flex-direction: row;
-        input {
-            background-color: #ced8e6;
-            width: 370px;
-            height: 40px;
-            color: #006600;
-            font-weight: bold;
-            border: #103454 2px solid;
-            border-radius: 4px;
-            text-align: center;
-            @media only screen and (max-width: 622px) and (min-width: 100px) {
-                width: 300px;
-            }
-        }
-        #buscar {
-            font-weight: bolder;
-            font-style: italic;
-            color: #31b9f3;
-            width: 150px;
-            height: 40px;
-            font-size: 15px;
-            background-color: #0d2235;
-            border: #103454 2px solid;
-            border-radius: 4px;
+    #converter {
+        font-size: 15px;
+        color: #31b9ec;
+        font-weight: bolder;
+        background-color: #00a02b;
+        width: 130px;
+        height: 40px;
+        background-color: #1b3a56;
+        border-color: #31b9f3;
+        border-width: 0 1px 0 0px;
+        border-radius: 2px;
+        border: #103454 2px solid;
 
-            &:hover {
-                background-color: ${darken(0.1, '#1c4367')};
-                cursor: pointer;
-            }
-        }
-        @media only screen and (max-width: 980px) and (min-width: 100px) {
-            margin: 0 130px 0 0;
+        &:hover {
+            color: ${darken(0.1, '#1c4367')};
+            cursor: pointer;
         }
     }
 
-    #linha2 {
-        animation: ${fadeInRightAnimation} 1s linear;
-        display: flex;
-        flex-direction: row;
+    #selecionarTipo {
+        font-size: 15px;
+        color: #31b9ec;
+        font-weight: bolder;
+        background-color: #00a02b;
+        width: 130px;
+        height: 40px;
+        background-color: #1b3a56;
+        border-color: #31b9f3;
+        border-width: 0 0 0 1px;
+        border-radius: 2px;
+        border: #103454 2px solid;
+        text-align: center;
 
-        #Converter {
-            font-size: 15px;
-            color: #31b9ec;
-            font-weight: bolder;
-            background-color: #00a02b;
-            width: 130px;
-            height: 40px;
-            background-color: #1b3a56;
-            border-color: #31b9f3;
-            border-width: 0 1px 0 0px;
-            border-radius: 2px;
-            border: #103454 2px solid;
+        background-position: center;
 
-            &:hover {
-                color: ${darken(0.1, '#1c4367')};
-                cursor: pointer;
-            }
+        &:hover {
+            color: ${darken(0.1, '#1c4367')};
+            cursor: pointer;
         }
-
-        #selecionarTipo {
-            font-size: 15px;
-            color: #31b9ec;
-            font-weight: bolder;
-            background-color: #00a02b;
-            width: 130px;
-            height: 40px;
-            background-color: #1b3a56;
-            border-color: #31b9f3;
-            border-width: 0 0 0 1px;
-            border-radius: 2px;
-            border: #103454 2px solid;
-            text-align: center;
-
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-            background-position: 218px center;
-
-            &:hover {
-                color: ${darken(0.1, '#1c4367')};
-                cursor: pointer;
-            }
-        }
-        @media only screen and (max-width: 980px) and (min-width: 100px) {
-            margin: 20px 0 0 0;
-        }
+    }
+    @media only screen and (max-width: 980px) and (min-width: 100px) {
+        margin: 20px 0 0 0;
     }
 `;
 

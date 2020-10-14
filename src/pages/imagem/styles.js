@@ -147,9 +147,6 @@ export const Properties = styled.div`
             border: #103454 2px solid;
             text-align: center;
 
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
             background-position: 218px center;
         }
     }
@@ -169,6 +166,9 @@ export const Properties = styled.div`
         input {
             margin: 0 10px 0 10px;
             width: 25px;
+            &:hover {
+                cursor: pointer;
+            }
         }
         h6 {
             font-size: 15px;

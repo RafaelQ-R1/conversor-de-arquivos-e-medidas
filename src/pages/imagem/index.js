@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 
 import Features from '../../components/Features';
 import { Container, Convert, Properties, Types } from './styles';
@@ -7,10 +7,31 @@ import Title from '../../components/Title';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import CommonTutorial from '../../components/CommonTutorial';
+import Upload from '../../components/Upload';
 
 import Options from '../../components/Options';
 
-function imagem() {
+export default function Imagem() {
+    const [media, setMedia] = useState(false);
+    const [boa, setBoa] = useState(false);
+    const [excelente, setExcelente] = useState(false);
+
+    const selectMedia = () => {
+        setMedia(true);
+        setBoa(false);
+        setExcelente(false);
+    };
+    const selectBoa = () => {
+        setMedia(false);
+        setBoa(true);
+        setExcelente(false);
+    };
+    const selectExcelente = () => {
+        setMedia(false);
+        setBoa(false);
+        setExcelente(true);
+    };
+
     return (
         <>
             <Container>
@@ -31,10 +52,6 @@ function imagem() {
 
                     <div id="Commands">
                         <div>
-                            <input
-                                readOnly
-                                placeholder="Clique em buscar ou arraste o imagem aqui"
-                            />
                             <button id="Browse" type="button">
                                 Buscar
                             </button>
@@ -45,6 +62,10 @@ function imagem() {
                     </div>
                 </Convert>
 
+                <Upload
+                    accept="image/*"
+                    message="Clique aqui ou arraste as imagens aqui..."
+                />
                 <Properties>
                     <div id="Output">
                         <strong>Saída</strong>
@@ -58,11 +79,19 @@ function imagem() {
                     </div>
                     <div id="Quality">
                         <strong>Qualidade de JPEG</strong>
-                        <input checked="" type="radio" />
+                        <input
+                            checked={media}
+                            type="radio"
+                            onClick={selectMedia}
+                        />
                         <h6>média</h6>
-                        <input checked="" type="radio" />
+                        <input checked={boa} type="radio" onClick={selectBoa} />
                         <h6>boa</h6>
-                        <input checked="" type="radio" />
+                        <input
+                            checked={excelente}
+                            type="radio"
+                            onClick={selectExcelente}
+                        />
                         <h6>excelente</h6>
                     </div>
                 </Properties>
@@ -94,5 +123,3 @@ function imagem() {
         </>
     );
 }
-
-export default imagem;

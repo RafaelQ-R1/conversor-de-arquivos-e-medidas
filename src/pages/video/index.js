@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Footer from '../../components/Footer';
 import Title from '../../components/Title';
@@ -6,11 +6,16 @@ import Header from '../../components/Header';
 import Features from '../../components/Features';
 import CommonTutorial from '../../components/CommonTutorial';
 import Options from '../../components/Options';
+import Upload from '../../components/Upload';
 
 // import Navbar from '../../components/Navbar';
 import { Container, Form, Rodape } from './styles';
 
-function video() {
+function Video() {
+    const [types, setTypes] = useState(['MP4', 'WMV', 'AVI', 'AVC']);
+    const selectType = (e) => {
+        setTypes(e.target.value);
+    };
     return (
         <>
             <Container>
@@ -23,28 +28,22 @@ function video() {
                 <Header label="Escolha o formato de vídeo que quer converter" />
 
                 <Form>
-                    <div id="linha1">
-                        <input
-                            readOnly
-                            placeholder="Clique em buscar ou arraste o vídeo aqui"
-                        />
-                        <button type="button" id="buscar">
-                            Buscar
-                        </button>
-                    </div>
+                    <button type="button" id="converter">
+                        Converter
+                    </button>
 
-                    <div id="linha2">
-                        <button type="button" id="Converter">
-                            Converter
-                        </button>
-                        <select id="selecionarTipo">
-                            <option value="volvo">MP4</option>
-                            <option value="saab">MP3</option>
-                            <option value="opel">AVI</option>
-                            <option value="audi">WMV</option>
-                        </select>
-                    </div>
+                    <select id="selecionarTipo" onChange={selectType}>
+                        {types.map((type) => (
+                            <option key={type} value={type}>
+                                {type}
+                            </option>
+                        ))}
+                    </select>
                 </Form>
+                <Upload
+                    accept="video/*"
+                    message="Clique aqui ou arraste os vídeos aqui..."
+                />
                 <Header label="Como utilizar a conversão de vídeos:" />
                 <CommonTutorial
                     title1="Clique em buscar ou arraste um vídeo"
@@ -86,4 +85,4 @@ function video() {
     );
 }
 
-export default video;
+export default Video;

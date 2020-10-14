@@ -14,17 +14,25 @@ import Features from '../../components/Features';
 
 import { Container, TypeConversion } from './styles';
 
+const unities = require('./unities');
+
 function Medidas() {
-    const [temperature1, setTemperature1] = useState(0);
+    const [temperature1, setTemperature1] = useState('celsius');
+    const [temperature2, setTemperature2] = useState('farenheit');
+    const [temperatureValue, setTemperatureValue] = useState(0);
     const [speed1, setSpeed1] = useState(0);
     const [metric1, setMetric1] = useState(0);
     const [time1, setTime1] = useState(0);
-    const [temperature2, setTemperature2] = useState(0);
     const [speed2, setSpeed2] = useState(0);
     const [metric2, setMetric2] = useState(0);
     const [time2, setTime2] = useState(0);
     const [valueToConvert] = useState(0);
     const [convertionResult, setConversionResult] = useState(0);
+
+    const changeTemperatureValueToConvert = (e) => {
+        e.preventDefault();
+        setTemperatureValue(e.target.value);
+    };
 
     const changeTemperature1 = (e) => {
         e.preventDefault();
@@ -34,9 +42,14 @@ function Medidas() {
         e.preventDefault();
         setTemperature2(e.target.value);
     };
-    const convertTemperature = () => {
-        const conversionResultTemperature = temperature1 + temperature2;
-        setConversionResult(conversionResultTemperature);
+
+    const convert = async (val = 60, base = 's', to = 'min') => {
+        const result = await Number(unities[base][to][val]);
+        return alert(result);
+    };
+
+    const convertTemperature = async () => {
+        //  alert(convert(60, 's', 'min'));
     };
 
     const changeSpeed1 = (e) => {
@@ -89,22 +102,22 @@ function Medidas() {
                     <FaTemperatureHigh size={35} color="#6a47fa" />
                 </TypeConversion>
                 <Pannel
-                    onChange1={changeTemperature1}
-                    onChange2={changeTemperature2}
+                    item1="Celsius"
+                    item2="Fahreneit"
+                    item3="Kelvin"
+                    value1="celsius"
+                    value2="fahreneit"
+                    value3="kelvin"
                     convertFrom={temperature1}
                     convertTo={temperature2}
-                    valueToConvert={valueToConvert}
+                    valueToConvert={temperatureValue}
                     convertionResult={convertionResult}
-                    item="Celsius"
-                    item="Farenheit"
-                    item="Kelvin"
-                    item="Libras"
-                    value="Celsius"
-                    value="Farenheit"
-                    onClickAlternate={() => {
-                        alert('Clicou no Alternate');
+                    onChange1={changeTemperature1}
+                    onChange2={changeTemperature2}
+                    onChangeValueToConvert={changeTemperatureValueToConvert}
+                    onClickConvert={() => {
+                        convert();
                     }}
-                    onClickConvert={convertTemperature}
                 />
                 <TypeConversion>
                     <strong>Converter velocidade</strong>
@@ -144,9 +157,7 @@ function Medidas() {
                     onClickAlternate={() => {
                         alert('Clicou no Alternate');
                     }}
-                    onClickConvert={() => {
-                        alert('Clicou no Convert');
-                    }}
+                    onClickConvert={convertTemperature}
                 />
 
                 <TypeConversion>

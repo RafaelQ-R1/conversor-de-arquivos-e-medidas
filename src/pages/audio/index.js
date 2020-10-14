@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Features from '../../components/Features';
 import Title from '../../components/Title';
@@ -6,10 +6,16 @@ import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import CommonTutorial from '../../components/CommonTutorial';
 import Options from '../../components/Options';
+import Upload from '../../components/Upload';
 
 import { Container, Form, Rodape } from './styles';
 
-function audio() {
+function Audio() {
+    const [types, setTypes] = useState(['MP3', 'WAV', 'WMA', 'AAC']);
+
+    const selectType = (e) => {
+        setTypes(e.target.value);
+    };
     return (
         <>
             <Container>
@@ -21,28 +27,22 @@ function audio() {
                 <Header label="Escolha o formato de vídeo que quer converter" />
 
                 <Form>
-                    <div id="linha1">
-                        <input
-                            readOnly
-                            placeholder="Clique em buscar ou arraste o vídeo aqui"
-                        />
-                        <button type="button" id="buscar">
-                            Buscar
-                        </button>
-                    </div>
+                    <button type="button" id="converter">
+                        Converter
+                    </button>
 
-                    <div id="linha2">
-                        <button type="button" id="Converter">
-                            Converter
-                        </button>
-                        <select id="selecionarTipo">
-                            <option value="volvo">MP3</option>
-                            <option value="saab">WAV</option>
-                            <option value="opel">WMA</option>
-                            <option value="audi">AAC</option>
-                        </select>
-                    </div>
+                    <select id="selecionarTipo" onChange={selectType}>
+                        {types.map((type) => (
+                            <option key={type} value={type}>
+                                {type}
+                            </option>
+                        ))}
+                    </select>
                 </Form>
+                <Upload
+                    accept="audio/*"
+                    message="Clique aqui ou arraste os áudios aqui..."
+                />
                 <Header label="Como utilizar a conversão de áudios:" />
                 <CommonTutorial
                     title1="Clique em buscar ou arraste um áudio"
@@ -81,4 +81,4 @@ function audio() {
         </>
     );
 }
-export default audio;
+export default Audio;

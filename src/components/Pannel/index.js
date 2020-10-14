@@ -10,17 +10,23 @@ function Pannel(props) {
     const {
         onClickAlternate,
         onClickConvert,
-        item,
-        valueSelect1,
-        valueSelect2,
+        valueToConvert1,
+        valueToConvert2,
         onChange1,
         onChange2,
         valueToConvert,
-        onChange,
+        onChangeValueToConvert,
         convertFrom,
         convertTo,
         convertionResult,
-        value,
+        value1,
+        value2,
+        value3,
+        value4,
+        item1,
+        item2,
+        item3,
+        item4,
     } = props;
 
     return (
@@ -29,20 +35,22 @@ function Pannel(props) {
                 <div id="line1">
                     <div id="value">
                         <strong>Valor</strong>
-                        <input onChange={onChange} value={valueToConvert} />
+                        <input
+                            onChange={onChangeValueToConvert}
+                            value={valueToConvert}
+                        />
                     </div>
                     <div id="convertTo">
                         <strong>Converter de</strong>
                         <select
                             id="selecionarTipo"
-                            value={valueSelect1}
+                            value={valueToConvert1}
                             onChange={onChange1}
                         >
-                            {item.map((option) => (
-                                <option key={option} value={option}>
-                                    {option}
-                                </option>
-                            ))}
+                            <option value={value1}>{item1}</option>
+                            <option value={value2}>{item2}</option>
+                            <option value={value3}>{item3}</option>
+                            <option value={value4}>{item4}</option>
                         </select>
                     </div>
                     <button
@@ -56,13 +64,13 @@ function Pannel(props) {
                         <strong>Para</strong>
                         <select
                             id="selecionarTipo"
-                            value={valueSelect2}
+                            value={valueToConvert2}
                             onChange={onChange2}
                         >
-                            <option value={value}>{item}</option>
-                            <option value={value}>{item}</option>
-                            <option value={value}>{item}</option>
-                            <option value={value}>{item}</option>
+                            <option value={value1}>{item1}</option>
+                            <option value={value2}>{item2}</option>
+                            <option value={value3}>{item3}</option>
+                            <option value={value4}>{item4}</option>
                         </select>
                     </div>
                     <button id="convert" type="button" onClick={onClickConvert}>
