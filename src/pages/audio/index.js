@@ -7,60 +7,69 @@ import Header from '../../components/Header';
 import CommonTutorial from '../../components/CommonTutorial';
 import Options from '../../components/Options';
 import Upload from '../../components/Upload';
+import { apiLocal } from '../../services/api';
 
-import { Container, Form, Rodape } from './styles';
+import { Container, Rodape } from './styles';
 
 function Audio() {
-    const [types, setTypes] = useState(['MP3', 'WAV', 'WMA', 'AAC']);
+    const [formats] = useState(['mp3', 'wav', 'sss']);
+    const [currentFormat, setCurrentFormat] = useState('mp3');
+    const convertAudio = async (stateValues) => {
+        try {
+            await apiLocal.post('convert_image', {
+                pathToFile: stateValues[0][0].path,
+                format: currentFormat,
+                size: 1000,
+                quality: 100,
+            });
+            return alert('video sucefully converted');
+        } catch (err) {
+            return alert.log(err);
+        }
+    };
 
-    const selectType = (e) => {
-        setTypes(e.target.value);
+    const changeFormat = (e) => {
+        setCurrentFormat(e.target.value);
     };
     return (
         <>
             <Container>
                 <Title
                     label1="conversor de arquivos e medidas"
-                    label2="Converter áudio"
+                    label2="Converter vídeo"
                 />
+
                 <Options />
-                <Header label="Escolha o formato de vídeo que quer converter" />
+                <Header label="Escolha o formato de áudio que quer converter" />
 
-                <Form>
-                    <button type="button" id="converter">
-                        Converter
-                    </button>
-
-                    <select id="selecionarTipo" onChange={selectType}>
-                        {types.map((type) => (
-                            <option key={type} value={type}>
-                                {type}
-                            </option>
-                        ))}
-                    </select>
-                </Form>
                 <Upload
                     accept="audio/*"
-                    message="Clique aqui ou arraste os áudios aqui..."
+                    message="Clique aqui ou arraste o áudio aqui..."
+                    itens={formats}
+                    onChange={changeFormat}
+                    exit="saída"
+                    onClick={convertAudio}
                 />
-                <Header label="Como utilizar a conversão de áudios:" />
+                <Header label="Como utilizar a conversão de vídeos:" />
                 <CommonTutorial
-                    title1="Clique em buscar ou arraste um áudio"
-                    text1="  Para converter o seu áudio, clique no botão buscar e selecione um
-                    áudio ou arraste ele até a caixa de texto ao lado do botão 'buscar'."
+                    title1="Clique em buscar ou arraste um vídeo"
+                    text1="  Para converter o seu vídeo, clique no botão buscar e selecione um
+                    vídeo ou arraste ele até a caixa de texto ao lado do botão 'buscar'."
                     title2="Selecione o formato que deseja converter"
                     text2="Ao lado do botão 'Converter', clique no botão de formatos e selecione o que preferir.
-                    Apenas os formatos presentes na caixa são válidos ."
+                    Apenas os formatos presentes na caixas são válidos ."
                     title3="Clique em 'Converter'"
                     text3="Assim que clicar em 'Converter' a conversão do seu arquivo será iniciada.
                     O tempo de conversão vai variar de acordo com o tamanho e tipo de arquivo"
                     title4="Aguarde e depois faça o download"
-                    text4=" Assim que a converstão terminar, seu arquivo de áudio convertido estará disponível
-                     para download no link abaixo. Você pode fazer quantas conversões quiser após essa"
+                    text4=" Assim que a converstão terminar, seu arquivo de vídeo convertido estará disponível
+                     para download na caixa abaixo. Você pode fazer quantas conversões quiser, apos essa"
                 />
+
                 <Features />
+
                 <Rodape>
-                    <h2>Converta seus áudios para qualquer formato</h2>
+                    <h2>Converta seus vídeos do para qualquer formato</h2>
                     <strong>
                         Este site é um dos melhores conversores de músicas do
                         YouTube, suportando todos os formatos possíveis de
@@ -81,4 +90,5 @@ function Audio() {
         </>
     );
 }
+
 export default Audio;

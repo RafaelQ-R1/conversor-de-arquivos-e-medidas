@@ -1,35 +1,36 @@
-import React, { useCallback, useState } from 'react';
+import React, { useState } from 'react';
 
 import Features from '../../components/Features';
-import { Container, Convert, Properties, Types } from './styles';
-
+import { Container } from './styles';
 import Title from '../../components/Title';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import CommonTutorial from '../../components/CommonTutorial';
 import Upload from '../../components/Upload';
+import { apiLocal } from '../../services/api';
 
 import Options from '../../components/Options';
 
 export default function Imagem() {
-    const [media, setMedia] = useState(false);
-    const [boa, setBoa] = useState(false);
-    const [excelente, setExcelente] = useState(false);
+    const [formats] = useState(['jpeg', 'png', 'webp', 'gif', 'tiff']);
+    const [currentFormat, setCurrentFormat] = useState('jpeg');
 
-    const selectMedia = () => {
-        setMedia(true);
-        setBoa(false);
-        setExcelente(false);
+    const convertImage = async (stateValues) => {
+        try {
+            await apiLocal.post('convert_image', {
+                pathToFile: stateValues[0][0].path,
+                format: currentFormat,
+                size: 1000,
+                quality: 100,
+            });
+            return alert('image sucefully converted');
+        } catch (err) {
+            return alert.log(err);
+        }
     };
-    const selectBoa = () => {
-        setMedia(false);
-        setBoa(true);
-        setExcelente(false);
-    };
-    const selectExcelente = () => {
-        setMedia(false);
-        setBoa(false);
-        setExcelente(true);
+
+    const changeFormat = (e) => {
+        setCurrentFormat(e.target.value);
     };
 
     return (
@@ -41,65 +42,16 @@ export default function Imagem() {
                 />
                 <Options />
 
-                <Header label="Escolha a Imagem ou Foto a converter" />
-                <Convert>
-                    <div id="Size-limit">
-                        <h5>Tamanho limite: 3072 KB (3 MB)</h5>
-                        <h6>
-                            Seja paciente se a imagem original for muito grande
-                        </h6>
-                    </div>
-
-                    <div id="Commands">
-                        <div>
-                            <button id="Browse" type="button">
-                                Buscar
-                            </button>
-                        </div>
-                        <button id="Convert" type="button">
-                            converter
-                        </button>
-                    </div>
-                </Convert>
+                <Header label="Escolha um formato de imagem para converter" />
 
                 <Upload
                     accept="image/*"
-                    message="Clique aqui ou arraste as imagens aqui..."
+                    message="Clique ou arraste as imagens aqui..."
+                    itens={formats}
+                    onChange={changeFormat}
+                    exit="saída"
+                    onClick={convertImage}
                 />
-                <Properties>
-                    <div id="Output">
-                        <strong>Saída</strong>
-
-                        <select id="select1">
-                            <option value="volvo">milímetro</option>
-                            <option value="saab">centímetro</option>
-                            <option value="opel">metro</option>
-                            <option value="audi">kilometro</option>
-                        </select>
-                    </div>
-                    <div id="Quality">
-                        <strong>Qualidade de JPEG</strong>
-                        <input
-                            checked={media}
-                            type="radio"
-                            onClick={selectMedia}
-                        />
-                        <h6>média</h6>
-                        <input checked={boa} type="radio" onClick={selectBoa} />
-                        <h6>boa</h6>
-                        <input
-                            checked={excelente}
-                            type="radio"
-                            onClick={selectExcelente}
-                        />
-                        <h6>excelente</h6>
-                    </div>
-                </Properties>
-                <Types>
-                    JPEG, TIFF, PNG, PSD, GIF, BMP, RAW, PCX, JXR, DNG, CRW,
-                    CR2, NEF, RAF, MRW, PEF, S3F, SRF, ARW, SRW, X3F, RW2
-                    formats supported
-                </Types>
 
                 <Header label="Como usar a conversão de imagens:" />
 

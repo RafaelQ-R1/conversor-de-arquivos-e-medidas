@@ -7,14 +7,30 @@ import Features from '../../components/Features';
 import CommonTutorial from '../../components/CommonTutorial';
 import Options from '../../components/Options';
 import Upload from '../../components/Upload';
+import { apiLocal } from '../../services/api';
 
-// import Navbar from '../../components/Navbar';
-import { Container, Form, Rodape } from './styles';
+import { Container, Rodape } from './styles';
 
 function Video() {
-    const [types, setTypes] = useState(['MP4', 'WMV', 'AVI', 'AVC']);
-    const selectType = (e) => {
-        setTypes(e.target.value);
+    const [formats] = useState(['mp4', 'wmv', 'avi']);
+    const [currentFormat, setCurrentFormat] = useState('mp4');
+
+    const convertVideo = async (stateValues) => {
+        try {
+            await apiLocal.post('convert_image', {
+                pathToFile: stateValues[0][0].path,
+                format: currentFormat,
+                size: 1000,
+                quality: 100,
+            });
+            return alert('video sucefully converted');
+        } catch (err) {
+            return alert.log(err);
+        }
+    };
+
+    const changeFormat = (e) => {
+        setCurrentFormat(e.target.value);
     };
     return (
         <>
@@ -27,22 +43,13 @@ function Video() {
                 <Options />
                 <Header label="Escolha o formato de vídeo que quer converter" />
 
-                <Form>
-                    <button type="button" id="converter">
-                        Converter
-                    </button>
-
-                    <select id="selecionarTipo" onChange={selectType}>
-                        {types.map((type) => (
-                            <option key={type} value={type}>
-                                {type}
-                            </option>
-                        ))}
-                    </select>
-                </Form>
                 <Upload
                     accept="video/*"
                     message="Clique aqui ou arraste os vídeos aqui..."
+                    itens={formats}
+                    onChange={changeFormat}
+                    exit="saída"
+                    onClick={convertVideo}
                 />
                 <Header label="Como utilizar a conversão de vídeos:" />
                 <CommonTutorial

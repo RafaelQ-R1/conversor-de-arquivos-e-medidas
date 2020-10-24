@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable radix */
 /* eslint-disable react/destructuring-assignment */
@@ -10,7 +11,7 @@ import filesize from 'filesize';
 
 import { apiLocal } from '../../services/api';
 
-import { Container, Content } from './styles';
+import { Container, Content, Convert, Properties, Types } from './styles';
 
 import Dropzone from '../DropZone';
 import FileList from '../FileList';
@@ -18,13 +19,11 @@ import FileList from '../FileList';
 class Upload extends Component {
     state = {
         uploadedFiles: [],
+        low: null,
+        medium: null,
+        good: null,
+        format: 'png',
     };
-
-    componentWillUnmount() {
-        this.state.uploadedFiles.forEach((file) =>
-            URL.revokeObjectURL(file.preview)
-        );
-    }
 
     async componentDidMount() {
         const response = await apiLocal.get('uploadfile');
@@ -40,6 +39,40 @@ class Upload extends Component {
             })),
         });
     }
+
+    componentWillUnmount() {
+        this.state.uploadedFiles.forEach((file) =>
+            URL.revokeObjectURL(file.preview)
+        );
+    }
+
+    handleClick = () =>
+        this.props.onClick &&
+        this.props.onClick([this.state.uploadedFiles, this.state.format]);
+
+    selectLow = () => {
+        this.setState({
+            low: true,
+            medium: false,
+            good: false,
+        });
+    };
+
+    selectMedium = () => {
+        this.setState({
+            low: false,
+            medium: true,
+            good: false,
+        });
+    };
+
+    selectGood = () => {
+        this.setState({
+            low: false,
+            medium: false,
+            good: true,
+        });
+    };
 
     handleUpload = (files) => {
         const uploadedFiles = files.map((file) => ({
@@ -60,6 +93,20 @@ class Upload extends Component {
 
         uploadedFiles.forEach(this.processUpload);
     };
+
+    // convertFile = async () => {
+    //     try {
+    //         await apiLocal.post('convert_image', {
+    //             pathToFile: this.state.uploadedFiles[0].path,
+    //             format: this.state.format,
+    //             size: 1000,
+    //             quality: 100,
+    //         });
+    //         return alert('image sucefully converted');
+    //     } catch (err) {
+    //         return console.log(err);
+    //     }
+    // };
 
     updateFile = (id, data) => {
         this.setState({
@@ -93,6 +140,7 @@ class Upload extends Component {
                     uploaded: true,
                     id: response.data._id,
                     url: response.data.url,
+                    path: response.data.path,
                 });
             })
             .catch(() => {
@@ -103,24 +151,70 @@ class Upload extends Component {
     };
 
     render() {
-        const { uploadedFiles } = this.state;
-        const { accept, message } = this.props;
+        const { uploadedFiles, low, medium, good } = this.state;
+        const { accept, message, itens, onChange, exit, onClick } = this.props;
         return (
-            <Container>
-                <Content>
-                    <Dropzone
-                        accept={accept}
-                        message={message}
-                        onUpload={this.handleUpload}
-                    />
-                    {!!uploadedFiles.length && (
-                        <FileList
-                            files={uploadedFiles}
-                            onDelete={this.handleDelete}
+            <>
+                <Convert>
+                    <button
+                        id="Browse"
+                        type="button"
+                        onClick={this.handleClick}
+                    >
+                        Converter
+                    </button>
+                    <div id="Output">
+                        <strong>{exit}</strong>
+                        <select id="Options" type="button" onChange={onChange}>
+                            {itens.map((item) => (
+                                <option key={item} value={item}>
+                                    {item}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+                </Convert>
+                <Container>
+                    <Content>
+                        <Dropzone
+                            accept={accept}
+                            message={message}
+                            onUpload={this.handleUpload}
                         />
-                    )}
-                </Content>
-            </Container>
+                        {!!uploadedFiles.length && (
+                            <FileList files={uploadedFiles} />
+                        )}
+                    </Content>
+                </Container>
+                <Properties>
+                    <div id="Quality">
+                        <strong>Qualidade de saída</strong>
+                        <input
+                            checked={low}
+                            type="radio"
+                            onClick={this.selectLow}
+                        />
+                        <h6>baixa</h6>
+                        <input
+                            checked={medium}
+                            type="radio"
+                            onClick={this.selectMedium}
+                        />
+                        <h6>média</h6>
+                        <input
+                            checked={good}
+                            type="radio"
+                            onClick={this.selectGood}
+                        />
+                        <h6>alta</h6>
+                    </div>
+                </Properties>
+                <Types>
+                    JPEG, TIFF, PNG, PSD, GIF, BMP, RAW, PCX, JXR, DNG, CRW,
+                    CR2, NEF, RAF, MRW, PEF, S3F, SRF, ARW, SRW, X3F, RW2
+                    formats supported
+                </Types>
+            </>
         );
     }
 }
