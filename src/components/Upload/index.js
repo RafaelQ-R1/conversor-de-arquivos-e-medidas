@@ -1,3 +1,5 @@
+/* eslint-disable consistent-return */
+/* eslint-disable no-unused-expressions */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable radix */
@@ -46,9 +48,14 @@ class Upload extends Component {
         );
     }
 
-    handleClick = () =>
+    handleClick = () => {
+        const { uploadedFiles } = this.state;
+        if (!Array.isArray(uploadedFiles) || !uploadedFiles.length)
+            return alert('nenhum arquivo selecionado');
+
         this.props.onClick &&
-        this.props.onClick([this.state.uploadedFiles, this.state.format]);
+            this.props.onClick([this.state.uploadedFiles, this.state.format]);
+    };
 
     selectLow = () => {
         this.setState({
@@ -94,20 +101,6 @@ class Upload extends Component {
         uploadedFiles.forEach(this.processUpload);
     };
 
-    // convertFile = async () => {
-    //     try {
-    //         await apiLocal.post('convert_image', {
-    //             pathToFile: this.state.uploadedFiles[0].path,
-    //             format: this.state.format,
-    //             size: 1000,
-    //             quality: 100,
-    //         });
-    //         return alert('image sucefully converted');
-    //     } catch (err) {
-    //         return console.log(err);
-    //     }
-    // };
-
     updateFile = (id, data) => {
         this.setState({
             uploadedFiles: this.state.uploadedFiles.map((uploadedFile) => {
@@ -152,7 +145,7 @@ class Upload extends Component {
 
     render() {
         const { uploadedFiles, low, medium, good } = this.state;
-        const { accept, message, itens, onChange, exit, onClick } = this.props;
+        const { accept, message, itens, onChange, exit } = this.props;
         return (
             <>
                 <Convert>

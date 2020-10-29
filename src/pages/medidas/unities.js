@@ -1,15 +1,6 @@
-module.exports = {
-    s: {
-        name: 'Segundo',
-        min: (val) => (val * 1) / 60,
-    },
-    min: {
-        name: 'Minutos',
-        s: (val) => val * 60,
-        h: (val) => (val * 1) / 60,
-    },
-    h: {
-        name: 'Hora',
-        min: (val) => val * 60,
-    },
+export const unities = {
+    temperatures: ['C', 'F', 'K', 'R'],
+    speeds: ['m/s', 'km/h', 'm/h'],
+    lengths: ['mm', 'cm', 'm'],
+    times: ['s', 'min', 'h'],
 };

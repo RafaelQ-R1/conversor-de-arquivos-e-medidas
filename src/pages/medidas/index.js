@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import convert from 'convert-units';
 import { FaTemperatureHigh, FaRulerCombined } from 'react-icons/fa';
 import { RiTimerLine } from 'react-icons/ri';
 import { IoMdSpeedometer } from 'react-icons/io';
@@ -13,78 +14,119 @@ import Title from '../../components/Title';
 import Features from '../../components/Features';
 
 import { Container, TypeConversion } from './styles';
-
-const unities = require('./unities');
+import { unities } from './unities';
 
 function Medidas() {
-    const [temperature1, setTemperature1] = useState('celsius');
-    const [temperature2, setTemperature2] = useState('farenheit');
-    const [temperatureValue, setTemperatureValue] = useState(0);
-    const [speed1, setSpeed1] = useState(0);
-    const [metric1, setMetric1] = useState(0);
-    const [time1, setTime1] = useState(0);
-    const [speed2, setSpeed2] = useState(0);
-    const [metric2, setMetric2] = useState(0);
-    const [time2, setTime2] = useState(0);
-    const [valueToConvert] = useState(0);
-    const [convertionResult, setConversionResult] = useState(0);
+    const [temperatures] = useState(unities.temperatures);
+    const [temperatureToConvert, setTemperatureToConvert] = useState(0);
+    const [baseTemperature, setBaseTemperature] = useState('C');
+    const [targetTemperature, setTargetTemperature] = useState('K');
+    const [temperatureResult, setTemperatureResult] = useState(0);
 
-    const changeTemperatureValueToConvert = (e) => {
+    const [speeds] = useState(unities.speeds);
+    const [speedToConvert, setSpeedToConvert] = useState(0);
+    const [baseSpeed, setBaseSpeed] = useState('m/s');
+    const [targetSpeed, setTargetSpeed] = useState('km/h');
+    const [speedResult, setSpeedResult] = useState(0);
+
+    const [lengths] = useState(unities.lengths);
+    const [lengthToConvert, setLengthToConvert] = useState(0);
+    const [baseLength, setBaseLength] = useState('mm');
+    const [targetLength, setTargeLength] = useState('cm');
+    const [lengthResult, setLengthResult] = useState(0);
+
+    const [times] = useState(unities.times);
+    const [timeToConvert, setTimeToConvert] = useState(0);
+    const [baseTime, setBaseTime] = useState('s');
+    const [targetTime, setTargeTime] = useState('min');
+    const [timeResult, setTimeResult] = useState(0);
+
+    const changeBaseTime = (e) => {
         e.preventDefault();
-        setTemperatureValue(e.target.value);
+        setBaseTime(e.target.value);
     };
 
-    const changeTemperature1 = (e) => {
+    const changeTargetTime = (e) => {
         e.preventDefault();
-        setTemperature1(e.target.value);
-    };
-    const changeTemperature2 = (e) => {
-        e.preventDefault();
-        setTemperature2(e.target.value);
+        setTargeTime(e.target.value);
     };
 
-    const convert = async (val = 60, base = 's', to = 'min') => {
-        const result = await Number(unities[base][to][val]);
-        return alert(result);
+    const setTimeValue = (e) => {
+        e.preventDefault();
+        setTimeToConvert(e.target.value);
+    };
+
+    const convertTime = async () => {
+        const convertedTime = convert(timeToConvert)
+            .from(baseTime)
+            .to(targetTime);
+        setTimeResult(convertedTime);
+    };
+
+    const changeBaseTemperature = (e) => {
+        e.preventDefault();
+        setBaseTemperature(e.target.value);
+    };
+
+    const changeTargetTemperature = (e) => {
+        e.preventDefault();
+        setTargetTemperature(e.target.value);
+    };
+
+    const setTempereatureValue = (e) => {
+        e.preventDefault();
+        setTemperatureToConvert(e.target.value);
     };
 
     const convertTemperature = async () => {
-        //  alert(convert(60, 's', 'min'));
+        const convertedTemperature = convert(temperatureToConvert)
+            .from(baseTemperature)
+            .to(targetTemperature);
+        setTemperatureResult(convertedTemperature);
     };
 
-    const changeSpeed1 = (e) => {
+    const changeBaseSpeed = (e) => {
         e.preventDefault();
-        if (e.target.value === speed2) return;
-        setSpeed1(e.target.value);
+        setBaseSpeed(e.target.value);
     };
-    const changeSpeed2 = (e) => {
+
+    const changeTargetSpeed = (e) => {
         e.preventDefault();
-        if (e.target.value === speed1) return;
-        setSpeed2(e.target.value);
+        setTargetSpeed(e.target.value);
     };
-    const convertSpeed = () => {
-        const convertSpeedResult = speed1 + speed2;
-        setConversionResult(convertSpeedResult);
-    };
-    const changeMetric1 = (e) => {
+
+    const setSpeedValue = (e) => {
         e.preventDefault();
-        if (e.target.value === metric2) return;
-        setMetric1(e.target.value);
+        setSpeedToConvert(e.target.value);
     };
-    const changeMetric2 = (e) => {
-        e.preventDefault();
-        if (e.target.value === metric1) return;
-        setMetric2(e.target.value);
+
+    const convertSpeed = async () => {
+        const convertedSpeed = convert(speedToConvert)
+            .from(baseSpeed)
+            .to(targetSpeed);
+        setSpeedResult(convertedSpeed);
     };
-    const changeTime1 = (e) => {
+
+    const changeBaseLength = (e) => {
         e.preventDefault();
-        if (e.target.value === time2) return;
-        setTime1(e.target.value);
+        setBaseLength(e.target.value);
     };
-    const changeTime2 = (e) => {
+
+    const changeTargetLength = (e) => {
         e.preventDefault();
-        if (e.target.value === time1) return;
-        setTime2(e.target.value);
+        setTargeLength(e.target.value);
+    };
+
+    const setLengthValue = (e) => {
+        e.preventDefault();
+        setLengthToConvert(e.target.value);
+    };
+
+    const convertLength = async () => {
+        const convertedLength = convert(lengthToConvert)
+            .from(baseLength)
+            .to(targetLength);
+        setLengthResult(convertedLength);
     };
 
     return (
@@ -101,44 +143,36 @@ function Medidas() {
                     <strong>Converter temperatura</strong>
                     <FaTemperatureHigh size={35} color="#6a47fa" />
                 </TypeConversion>
+
                 <Pannel
-                    item1="Celsius"
-                    item2="Fahreneit"
-                    item3="Kelvin"
-                    value1="celsius"
-                    value2="fahreneit"
-                    value3="kelvin"
-                    convertFrom={temperature1}
-                    convertTo={temperature2}
-                    valueToConvert={temperatureValue}
-                    convertionResult={convertionResult}
-                    onChange1={changeTemperature1}
-                    onChange2={changeTemperature2}
-                    onChangeValueToConvert={changeTemperatureValueToConvert}
-                    onClickConvert={() => {
-                        convert();
-                    }}
+                    values={temperatures}
+                    valueToConvert={temperatureToConvert}
+                    baseValue={baseTemperature}
+                    targetValue={targetTemperature}
+                    TextValueToConvert={temperatureToConvert}
+                    convertionResult={temperatureResult}
+                    changeBaseValue={changeBaseTemperature}
+                    changeTargetValue={changeTargetTemperature}
+                    changeValueToConvert={setTempereatureValue}
+                    convertValues={convertTemperature}
                 />
+
                 <TypeConversion>
                     <strong>Converter velocidade</strong>
                     <IoMdSpeedometer size={35} color="#6a47fa" />
                 </TypeConversion>
 
                 <Pannel
-                    onChange1={changeSpeed1}
-                    onChange2={changeSpeed2}
-                    convertFrom={speed1}
-                    convertTo={speed2}
-                    item1="km/h"
-                    item2="m/s"
-                    item3="ml/h"
-                    item4="cm/s"
-                    onClickAlternate={() => {
-                        alert('Clicou no Alternate');
-                    }}
-                    onClickConvert={() => {
-                        alert('Clicou no Convert');
-                    }}
+                    values={speeds}
+                    valueToConvert={speedToConvert}
+                    baseValue={baseSpeed}
+                    targetValue={targetSpeed}
+                    TextValueToConvert={speedToConvert}
+                    convertionResult={speedResult}
+                    changeBaseValue={changeBaseSpeed}
+                    changeTargetValue={changeTargetSpeed}
+                    changeValueToConvert={setSpeedValue}
+                    convertValues={convertSpeed}
                 />
 
                 <TypeConversion>
@@ -146,18 +180,16 @@ function Medidas() {
                     <FaRulerCombined size={35} color="#6a47fa" />
                 </TypeConversion>
                 <Pannel
-                    convertFrom={metric1}
-                    convertTo={metric2}
-                    onChange1={changeMetric1}
-                    onChange2={changeMetric2}
-                    item1="Centímetros"
-                    item2="Metros"
-                    item3="Kilometrôs"
-                    item4="Parsecs"
-                    onClickAlternate={() => {
-                        alert('Clicou no Alternate');
-                    }}
-                    onClickConvert={convertTemperature}
+                    values={lengths}
+                    valueToConvert={lengthToConvert}
+                    baseValue={baseLength}
+                    targetValue={targetLength}
+                    TextValueToConvert={lengthToConvert}
+                    convertionResult={lengthResult}
+                    changeBaseValue={changeBaseLength}
+                    changeTargetValue={changeTargetLength}
+                    changeValueToConvert={setLengthValue}
+                    convertValues={convertLength}
                 />
 
                 <TypeConversion>
@@ -165,22 +197,46 @@ function Medidas() {
                     <RiTimerLine size={35} color="#6a47fa" />
                 </TypeConversion>
                 <Pannel
-                    convertFrom={time1}
-                    convertTo={time2}
-                    onChange1={changeTime1}
-                    onChange2={changeTime2}
-                    item1="Segundos"
-                    item2="Minutos"
-                    item3="Horas"
-                    item4="Dias"
-                    onClickAlternate={() => {
-                        alert('Clicou no Alternate');
-                    }}
-                    onClickConvert={() => {
-                        alert('Clicou no Convert');
-                    }}
+                    values={times}
+                    valueToConvert={timeToConvert}
+                    baseValue={baseTime}
+                    targetValue={targetTime}
+                    TextValueToConvert={timeToConvert}
+                    convertionResult={timeResult}
+                    changeValueToConvert={setTimeValue}
+                    changeBaseValue={changeBaseTime}
+                    changeTargetValue={changeTargetTime}
+                    convertValues={convertTime}
                 />
-                <Features />
+
+                <Features
+                    label="Como usar a conversão de medidas:"
+                    title1="Clique em buscar ou arraste um vídeo"
+                    text1="  Para converter o seu vídeo, clique no botão buscar e selecione um
+                vídeo ou arraste ele até a caixa de texto ao lado do botão 'buscar'."
+                    title2="Selecione o formato que deseja converter"
+                    text2="Ao lado do botão 'Converter', clique no botão de formatos e selecione o que preferir.
+                Apenas os formatos presentes na caixas são válidos ."
+                    title3="Clique em 'Converter'"
+                    text3="Assim que clicar em 'Converter' a conversão do seu arquivo será iniciada.
+                O tempo de conversão vai variar de acordo com o tamanho e tipo de arquivo"
+                    title4="Aguarde e depois faça o download"
+                    text4=" Assim que a converstão terminar, seu arquivo de vídeo convertido estará disponível
+                 para download na caixa abaixo. Você pode fazer quantas conversões quiser, apos essa"
+                    rodapeText="Converta seus áudios do para qualquer formato"
+                    strongText=" Este site é um dos melhores conversores de músicas do
+                    YouTube, suportando todos os formatos possíveis de
+                    música e vídeo, incluindo MP4, AVI, WMA e muitos outros.
+                    Nosso downloader de vídeos do YouTube é conveniente e
+                    fácil de acessar, atendendo a milhões de usuários todos
+                    os dias. Nos esforçamos muito para tornar a conversão de
+                    vídeo para MP3 320kbps mais pessoal para você. Agora
+                    você pode escolher qualquer formato de áudio, pois nosso
+                    Conversor On-line de YouTube suporta MP3, MP4, AVI, WAV,
+                    AAC, MOV, WMV e WMA. Escolha qualquer um deles e você
+                    obterá conversões de qualidade premium em qualquer um de
+                    seus dispositivos!"
+                />
             </Container>
             <Footer />
         </>

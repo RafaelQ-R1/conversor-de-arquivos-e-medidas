@@ -1,32 +1,23 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/prop-types */
 import React from 'react';
-
 import { FaExchangeAlt } from 'react-icons/fa';
 import { AiOutlineReload } from 'react-icons/ai';
 import { Body } from './styles';
 
 function Pannel(props) {
     const {
-        onClickAlternate,
-        onClickConvert,
-        valueToConvert1,
-        valueToConvert2,
-        onChange1,
-        onChange2,
+        switchValues,
+        convertValues,
+        changeTargetValue,
+        baseValue,
+        changeBaseValue,
+        targetValue,
         valueToConvert,
-        onChangeValueToConvert,
-        convertFrom,
-        convertTo,
+        changeValueToConvert,
         convertionResult,
-        value1,
-        value2,
-        value3,
-        value4,
-        item1,
-        item2,
-        item3,
-        item4,
+        values,
+        TextValueToConvert,
     } = props;
 
     return (
@@ -36,7 +27,7 @@ function Pannel(props) {
                     <div id="value">
                         <strong>Valor</strong>
                         <input
-                            onChange={onChangeValueToConvert}
+                            onChange={changeValueToConvert}
                             value={valueToConvert}
                         />
                     </div>
@@ -44,36 +35,34 @@ function Pannel(props) {
                         <strong>Converter de</strong>
                         <select
                             id="selecionarTipo"
-                            value={valueToConvert1}
-                            onChange={onChange1}
+                            value={baseValue}
+                            onChange={changeBaseValue}
                         >
-                            <option value={value1}>{item1}</option>
-                            <option value={value2}>{item2}</option>
-                            <option value={value3}>{item3}</option>
-                            <option value={value4}>{item4}</option>
+                            {values.map((value) => (
+                                <option key={value} value={value}>
+                                    {value}
+                                </option>
+                            ))}
                         </select>
                     </div>
-                    <button
-                        id="alternate"
-                        type="button"
-                        onClick={onClickAlternate}
-                    >
+                    <button id="alternate" type="button" onClick={switchValues}>
                         <FaExchangeAlt size={20} />
                     </button>
                     <div id="for">
                         <strong>Para</strong>
                         <select
                             id="selecionarTipo"
-                            value={valueToConvert2}
-                            onChange={onChange2}
+                            value={targetValue}
+                            onChange={changeTargetValue}
                         >
-                            <option value={value1}>{item1}</option>
-                            <option value={value2}>{item2}</option>
-                            <option value={value3}>{item3}</option>
-                            <option value={value4}>{item4}</option>
+                            {values.map((value) => (
+                                <option key={value} value={value}>
+                                    {value}
+                                </option>
+                            ))}
                         </select>
                     </div>
-                    <button id="convert" type="button" onClick={onClickConvert}>
+                    <button id="convert" type="button" onClick={convertValues}>
                         <AiOutlineReload size={20} />
                     </button>
                 </div>
@@ -81,17 +70,17 @@ function Pannel(props) {
                     <div id="box1">
                         <div id="box1Line1">
                             <strong id="strong1">Conversão de: </strong>
-                            <strong id="strong2">{convertFrom}</strong>
+                            <strong id="strong2">{baseValue}</strong>
                         </div>
                         <div id="box1Line2">
                             <strong id="strong3">Valor a converter:</strong>
-                            <strong id="strong4">{valueToConvert}</strong>
+                            <strong id="strong4">{TextValueToConvert}</strong>
                         </div>
                     </div>
                     <div id="box2">
                         <div id="box2Line1">
                             <strong id="strong5">Para:</strong>
-                            <strong id="strong6">{convertTo}</strong>
+                            <strong id="strong6">{targetValue}</strong>
                         </div>
                         <div id="box2Line2">
                             <strong id="strong7">

@@ -1,7 +1,8 @@
 import styled, { keyframes } from 'styled-components';
-import { fadeIn } from 'react-animations';
+import { fadeIn, flipInX } from 'react-animations';
 
 const fadeInAnimation = keyframes`${fadeIn}`;
+const flipAnimation = keyframes`${flipInX}`;
 
 export const Line = styled.div`
     border: #31b9f3 4px solid;
@@ -78,5 +79,49 @@ export const ListaDiferenciais = styled.div`
             flex-direction: column;
             margin: 20px 0 0 0;
         }
+    }
+`;
+
+export const Header = styled.h1`
+    text-align: center;
+    margin: 90px 0 90px 0;
+    text-decoration: underline;
+    color: #00f453;
+    animation: ${flipAnimation} 2s;
+`;
+
+export const Tutorial = styled.ol`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 0 100px 0;
+
+    li {
+        margin: 20px 120px 20px 120px;
+        #titulo-lista {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #00f492;
+            text-shadow: 0 0 1px #31b9f3, 0 0 10px #31b9f3;
+        }
+        #texto-lista {
+            font-size: 15px;
+            text-align: left;
+            color: #31b9f3;
+        }
+    }
+`;
+export const Rodape = styled.div`
+    margin: 0 90px 0 90px;
+    h2 {
+        text-align: center;
+        margin: 90px 0 70px 0;
+        color: #00f453;
+    }
+
+    strong {
+        text-align: center;
+        color: #31b9f3;
+        font-size: 12px;
     }
 `;
